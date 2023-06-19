@@ -1,0 +1,11 @@
+<div class="container">
+    <mat-toolbar class="toolbar" color="primary">
+        <h2 class="toolbar-title">Bug Reporting</h2>
+        <app-dashboard-nav class="nav" [user]="user"></app-dashboard-nav>
+        <app-dashboard-profile class="profile" [user]="user" (logout)="onLogout()"></app-dashboard-profile>
+    </mat-toolbar>
+
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

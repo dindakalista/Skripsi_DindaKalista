@@ -1,0 +1,6 @@
+<nav class="nav">
+    <a class="nav-link" routerLink="issue" routerLinkActive="nav-link-active">Issues</a>
+    <a class="nav-link" routerLink="feature" routerLinkActive="nav-link-active" *ngIf="isAdmin">Features</a>
+    <a class="nav-link" routerLink="user" routerLinkActive="nav-link-active" *ngIf="isAdmin">Users</a>
+    <a class="nav-link" routerLink="profile" routerLinkActive="nav-link-active">Profile</a>
+</nav>

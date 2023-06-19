@@ -1,0 +1,117 @@
+<div mat-dialog-title>
+    <span *ngIf="!isEdit">Add new issue</span>
+    <span *ngIf="isEdit">Edit issue</span>
+</div>
+
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+<mat-dialog-content>
+    <form class="form" [formGroup]="form">
+        <div class="form-section">
+            <div class="form-section-title">Issue Details</div>
+    
+            <div class="form-wrapper">
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always" style="display: none">
+                    <mat-label>Feature</mat-label>
+                    <mat-select formControlName="feature_id">
+                        <mat-option *ngFor="let feature of features" [value]="feature._id">{{ feature.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-field form-field-status" appearance="outline" floatLabel="always">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="status">
+                        <mat-option *ngFor="let status of statuses" [value]="status.value">{{ status.key }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Ref</mat-label>
+                    <input type="text" matInput formControlName="ref">
+                </mat-form-field>
+            </div>
+
+            <div class="form-wrapper">
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Reported date</mat-label>
+                    <input type="text" matInput formControlName="reported_date" [matDatepicker]="reportedDatePicker">
+                    <mat-datepicker-toggle matIconSuffix [for]="reportedDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #reportedDatePicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Due date</mat-label>
+                    <input type="text" matInput formControlName="due_date" [matDatepicker]="dueDatePicker" [min]="minDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #dueDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="form-wrapper">
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Severity</mat-label>
+                    <mat-select formControlName="severity">
+                        <mat-option *ngFor="let severity of severities" [value]="severity.value">{{ severity.key }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Dev type</mat-label>
+                    <mat-select formControlName="dev_type">
+                        <mat-option *ngFor="let devType of devTypes" [value]="devType.value">{{ devType.key }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field class="form-field form-field-full-width" appearance="outline" floatLabel="always">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-title">Developer</div>
+
+            <mat-form-field class="form-field form-field-full-width" appearance="outline" floatLabel="always">
+                <mat-label>Developer name</mat-label>
+                <mat-select formControlName="dev_id">
+                    <mat-option *ngFor="let developer of developers" [value]="developer._id">{{ developer.first_name + ' ' + developer.last_name + ' (' + developer.role + ')' }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="form-wrapper">
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>ETA (in minutes)</mat-label>
+                    <input type="number" matInput formControlName="dev_eta">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Actual (in minutes)</mat-label>
+                    <input type="number" matInput formControlName="dev_actual">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-section-title">Tester</div>
+
+            <mat-form-field class="form-field form-field-full-width" appearance="outline" floatLabel="always">
+                <mat-label>Tester name</mat-label>
+                <mat-select formControlName="qa_id">
+                    <mat-option *ngFor="let tester of testers" [value]="tester._id">{{ tester.first_name + ' ' + tester.last_name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="form-wrapper">
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>ETA (in minutes)</mat-label>
+                    <input type="number" matInput formControlName="qa_eta">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                    <mat-label>Actual (in minutes)</mat-label>
+                    <input type="number" matInput formControlName="qa_actual">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" mat-dialog-close [disabled]="isLoading">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="isLoading">Save</button>
+</mat-dialog-actions>

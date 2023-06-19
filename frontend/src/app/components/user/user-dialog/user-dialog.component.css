@@ -1,0 +1,10 @@
+.form {
+    width: 400px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.progress {
+    height: 2px;
+}

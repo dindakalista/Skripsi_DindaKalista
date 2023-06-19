@@ -1,0 +1,43 @@
+.form {
+    width: 700px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    
+}
+
+.form-section-title {
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.form-wrapper .form-field {
+    width: 50%;
+}
+
+.form-field-full-width {
+    width: 100%;
+}
+
+.mat-mdc-dialog-title {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.mat-mdc-dialog-title .mat-mdc-form-field {
+    margin-left: auto;
+}
+
+.mat-mdc-dialog-title .mat-mdc-form-field::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}

@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* toolbar */
+
+.toolbar {
+    height: auto;
+    padding: 24px;
+    color: inherit;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.toolbar-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-right: auto;
+}
+
+/* nav */
+
+.nav {
+    margin-right: auto;
+}
+
+.content {
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+}

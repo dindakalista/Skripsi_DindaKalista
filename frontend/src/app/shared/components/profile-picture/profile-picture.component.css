@@ -1,0 +1,49 @@
+.profile-picture-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture-wrapper {
+    position: relative;
+    width: 150px; height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(200, 20%, 90%);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-picture-spinner {
+    position: absolute;
+    /* --mdc-circular-progress-active-indicator-color: red !important; */
+}
+
+.profile-picture-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profile-picture-action {
+    display: flex;
+    align-items: center;
+    gap: 20px;    
+}
+
+.profile-picture-button:disabled {
+    opacity: 0.4;
+}
+
+.profile-picture-upload {
+    color: blue;
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.profile-picture-delete {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+}

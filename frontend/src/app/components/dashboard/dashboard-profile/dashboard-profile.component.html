@@ -1,0 +1,13 @@
+<div class="profile" [matMenuTriggerFor]="menu">
+    <span class="profile-name">{{ name }}</span>
+    <img class="profile-picture" [src]="picture">
+</div>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/profile">
+        <mat-icon>person_outline</mat-icon> Profile
+    </button>
+    <button mat-menu-item (click)="logout.emit()">
+        <mat-icon>exit_to_app</mat-icon> Logout
+    </button>
+</mat-menu>

@@ -1,0 +1,107 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* progress */
+
+.progress {
+    position: absolute;
+    top: 0; left: 0;
+    height: 2px;
+}
+
+/* toolbar */
+
+.toolbar {
+    width: 100%;
+    padding: 24px 24px 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.toolbar-spacer {
+    flex-grow: 1;
+}
+
+/* search */
+
+.search::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+.search::ng-deep .mat-mdc-form-field-icon-prefix > .mat-icon, 
+.search::ng-deep .mat-mdc-form-field-icon-suffix > .mat-icon {
+    padding: 0.4em;
+}
+
+.search::ng-deep .mat-mdc-form-field-icon-prefix, [dir=rtl] .mat-mdc-form-field-icon-suffix {
+    padding: 0;
+}
+
+.search::ng-deep .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+    padding: 0;
+}
+
+.search::ng-deep .mat-mdc-form-field-infix {
+    padding: 0;
+    min-height: auto;
+}
+
+.search::ng-deep .mat-mdc-form-field-flex {
+    align-items: center;
+}
+
+/* content */
+
+.content {
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden auto;
+}
+
+/* table */
+
+.table-container {
+    padding: 0 24px;
+}
+
+.table .mat-mdc-header-cell {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.table .mat-column-action {
+    width: 150px;
+    text-align: end;
+}
+
+.table .mat-column-role {
+    text-align: center;
+}
+
+.picture-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.picture {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}

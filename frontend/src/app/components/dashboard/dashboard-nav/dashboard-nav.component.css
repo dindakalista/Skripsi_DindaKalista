@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    position: relative;
+    font-weight: normal;
+    font-size: 1rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    opacity: 0.6;
+    transition: 0.2s;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: -0.2em;
+    width: 20%;
+    height: 2px;
+    opacity: 0;
+    transition: inherit;
+    background-color: currentColor;
+}
+
+.nav-link-active,
+.nav-link-active::before {
+    opacity: 1;
+}

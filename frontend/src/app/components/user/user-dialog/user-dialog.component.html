@@ -1,0 +1,51 @@
+<div mat-dialog-title>
+    <span *ngIf="!isEdit">Add new user</span>
+    <span *ngIf="isEdit">Edit user</span>
+</div>
+
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading" class="progress"></mat-progress-bar>
+
+<mat-dialog-content>
+    <app-profile-picture [user]="data.user" (change)="onPictureChange()"></app-profile-picture>
+
+    <form class="form" [formGroup]="form">
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <mat-label>first name</mat-label>
+            <input type="text" matInput formControlName="first_name">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <mat-label>last name</mat-label>
+            <input type="text" matInput formControlName="last_name">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <mat-label>email</mat-label>
+            <input type="email" matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <mat-label>password</mat-label>
+            <input type="text" matInput formControlName="password">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.key }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <mat-label>Permission</mat-label>
+            <mat-select formControlName="feature_ids" multiple="true">
+                <mat-option *ngFor="let feature of features" [value]="feature._id">{{ feature.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" (click)="dialog.close(isPictureChange)" [disabled]="isLoading">Cancel</button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="isLoading">Save</button>
+</mat-dialog-actions>

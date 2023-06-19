@@ -1,0 +1,56 @@
+<div class="container">
+    <mat-progress-bar mode="indeterminate" class="progress" *ngIf="isLoading"></mat-progress-bar>
+
+    <!-- toolbar -->
+    <div class="toolbar">
+        <div class="toolbar-spacer"></div>
+        
+        <button mat-flat-button (click)="openDialog()">
+            <mat-icon>vpn_key</mat-icon> Change password
+        </button>
+
+        <button mat-flat-button color="primary" (click)="onSave()">
+            <mat-icon>save</mat-icon> Save
+        </button>
+    </div>
+
+    <div class="content">
+        <div class="left-side">
+            <app-profile-picture [user]="user" (change)="onPictureChange($event)"></app-profile-picture>
+        </div>
+    
+        <div class="right-side" [formGroup]="form">
+            <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                <mat-label>email</mat-label>
+                <input type="email" matInput formControlName="email">
+                <mat-error *ngIf="form.get('email')?.errors?.['required']">field is required!</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                <mat-label>first name</mat-label>
+                <input type="text" matInput formControlName="first_name">
+                <mat-error *ngIf="form.get('first_name')?.errors?.['required']">field is required!</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                <mat-label>last name</mat-label>
+                <input type="text" matInput formControlName="last_name">
+                <mat-error *ngIf="form.get('last_name')?.errors?.['required']">field is required!</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.key }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+                <mat-label>Permission</mat-label>
+                <mat-select formControlName="feature_ids" multiple="true">
+                    <mat-option *ngFor="let feature of features" [value]="feature._id">{{ feature.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
