@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FeatureService } from 'src/app/services/feature.service';
 import { FeatureDialogComponent } from './feature-dialog/feature-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-feature',
@@ -115,6 +116,37 @@ export class FeatureComponent {
         });
 
         this.subs.add(sub);
+    }
+
+    deleteFeature(id: string) {
+        const swal = Swal.fire({
+            title: 'Delete Feature',
+            text: 'Are you sure want to delete this feature?',
+            icon: 'warning',
+            confirmButtonText: 'Delete',
+            confirmButtonColor: '#f44336',
+            showCancelButton: true,
+            allowOutsideClick: false,
+            cancelButtonText: 'Cancel'
+        })
+
+        swal.then(({ isConfirmed }) => {
+            if (!isConfirmed) return;
+
+            this.isLoading = true;
+            const sub = this.featureService.delete(id).subscribe({
+                next: () => {
+                    this.isLoading = false;
+                    this.fetchAllFeatures();
+                },
+                error: (error) => {
+                    this.isLoading = false;
+                    this.matSnackbar.open(JSON.stringify(error?.error?.detail) || error.message);
+                }
+            });
+
+            this.subs.add(sub);
+        });
     }
 
     ngOnDestroy() {
