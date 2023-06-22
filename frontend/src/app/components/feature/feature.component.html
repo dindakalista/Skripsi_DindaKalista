@@ -41,7 +41,7 @@
                         <button mat-icon-button color="primary" (click)="openDialog(true, item)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button mat-icon-button color="warn">
+                        <button mat-icon-button color="warn" (click)="deleteFeature(item?._id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
