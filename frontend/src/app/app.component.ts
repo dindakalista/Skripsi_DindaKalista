@@ -25,7 +25,7 @@ export class AppComponent {
             this.isLoggedIn = state;
 
             if (this.isLoggedIn) {
-                this.router.navigate(['']);
+                // this.router.navigate(['']);
             }
 
             // kalo state false berarti user logout
