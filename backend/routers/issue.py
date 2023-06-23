@@ -57,7 +57,7 @@ def update_issue(id: str, request: Request, issue: Optional[IssueUpdateModel] = 
 
 ########################### Get all issues
 @router.get("/", response_description="Get all issues", response_model=IssueGetAllModel)
-def get_all_issue(request: Request, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}"):
+def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}"):
     try:
         pagination = IssuePaginationModel(**loads_json(pagination)).dict()
         filters    = IssueFilterModel(**loads_json(filters)).dict(exclude_none=True)
@@ -68,7 +68,7 @@ def get_all_issue(request: Request, pagination: Union[str, None] = "{}", filters
 
         issues = list(request.app.database["issues"].aggregate([
             {
-                "$match": filters
+                "$match": { "feature_id": ObjectId(feature_id), **filters }
             },
             {
                 "$lookup": {

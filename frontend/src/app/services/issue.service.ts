@@ -14,11 +14,11 @@ export class IssueService {
         return this.httpClient.get(this.API_URL + '/' + id);
     }
 
-    getAll(filters: any = {}, pagination: any = {}) {
+    getAll(featureId: string, filters: any = {}, pagination: any = {}) {
         filters    = JSON.stringify(filters);
         pagination = JSON.stringify(pagination);
 
-        return this.httpClient.get(`${this.API_URL}?filters=${filters}&pagination=${pagination}`);
+        return this.httpClient.get(`${this.API_URL}?feature_id=${featureId}&filters=${filters}&pagination=${pagination}`);
     }
 
     create(data: any) {
