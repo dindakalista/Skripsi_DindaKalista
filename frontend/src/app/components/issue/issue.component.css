@@ -24,6 +24,10 @@
     flex-grow: 1;
 }
 
+.form-field {
+    min-width: 300px;
+}
+
 .toolbar::ng-deep .mat-mdc-form-field-subscript-wrapper {
     display: none !important;
 }
@@ -46,15 +50,124 @@
     height: 100%;
     padding: 24px;
     padding-top: 0;
+    overflow: hidden;
+}
+
+.table-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
     overflow: auto;
 }
 
-.mat-column-action {
+.table-container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: rgb(213, 216, 224);
+    border-radius: 10px;
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+}
+
+.table .mat-mdc-header-cell {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-right: 1px solid rgb(213, 216, 224);
+}
+
+.table .mat-mdc-cell {
+    border-right: 1px solid rgb(213, 216, 224);
+}
+
+.table .mat-mdc-header-cell.mat-column-ref,
+.table .mat-mdc-header-cell.mat-column-action {
+    z-index: 4;
+}
+
+.table .mat-mdc-header-cell.mat-column-ref {
+    left: 0;
+}
+
+.table .mat-mdc-cell.mat-column-ref {
+    position: sticky;
+    left: 0;
+    min-width: 100px;
+    text-align: center;
+    z-index: 3;
+}
+
+.table .mat-column-description {
+    min-width: 300px;
+}
+
+.table .mat-column-reporter {
+    min-width: 200px;
+}
+
+.table .mat-column-reported_date {
+    min-width: 150px;
     text-align: center;
 }
 
-.mat-column-description {
-    max-width: 200px;
-    padding: 1em 0;
-    line-height: 1.75;
+.table .mat-column-due_date {
+    min-width: 150px;
+    text-align: center;
+}
+
+.table .mat-column-dev_type {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-severity {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-status {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-dev {
+    min-width: 200px;
+}
+
+.table .mat-column-dev_eta {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-dev_actual {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-qa {
+    min-width: 200px;
+}
+
+.table .mat-column-qa_eta {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-qa_actual {
+    min-width: 100px;
+    text-align: center;
+}
+
+.table .mat-column-action {
+    position: sticky;
+    right: 0;
+    min-width: 150px;
+    text-align: center;
 }

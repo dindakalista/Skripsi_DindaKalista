@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { FeatureService } from 'src/app/services/feature.service';
 import { IssueService } from 'src/app/services/issue.service';
 import { IssueDialogComponent } from './issue-dialog/issue-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -14,11 +15,22 @@ import Swal from 'sweetalert2'
   styleUrls: ['./issue.component.css']
 })
 export class IssueComponent {
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+    
     subs = new Subscription();
 
     dataSource = new MatTableDataSource<any[]>([]);
-    displayedColumns: string[] = ['ref', 'description', 'reporter', 'reported_date', 'due_date', 'dev_type', 'severity', 'status', 'action'];
+    displayedColumns: string[] = ['ref', 'description', 'reporter', 'reported_date', 'due_date', 'dev_type', 'severity', 'status', 'dev', 'dev_eta', 'dev_actual', 'qa', 'qa_eta', 'qa_actual', 'action'];
 
+    pagination: any = {
+        index: 0,
+        limit: 20
+    };
+
+    filters: any = {
+        name: null
+    };
+    
     features: any[] = [];
     selectedFeatureId: string = '';
     isLoading: boolean = false;
@@ -34,10 +46,34 @@ export class IssueComponent {
         this.fetchAllFeatures();
     }
 
+    ngAfterViewInit() {
+        this.initPaginator();    
+    }
+
+    initPaginator() {
+        const sub = this.paginator.page.subscribe((event) => {
+            this.pagination.index = event.pageIndex;
+            this.pagination.limit = event.pageSize;
+            this.fetchAllIssues();
+        });
+
+        this.subs.add(sub);
+    }
+
+    resetPaginator() {
+        this.pagination.index = 0;
+        this.paginator.pageIndex = 0;
+    }
+
+    refresh() {
+        this.resetPaginator();
+        this.fetchAllIssues();
+    }
+
     fetchAllFeatures() {
         this.isLoading = true;
 
-        const sub = this.featureService.getAll().subscribe({
+        const sub = this.featureService.getAll({}, { limit: 1000 }).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
                 this.features = data.features;
@@ -56,13 +92,14 @@ export class IssueComponent {
     fetchAllIssues() {
         this.isLoading = true;
 
-        const filters = {
-            feature_id: this.selectedFeatureId
-        };
+        const filters = {};
+        const featureId = this.selectedFeatureId;
+        const pagination = this.pagination;
 
-        const sub = this.issueService.getAll(filters).subscribe({
+        const sub = this.issueService.getAll(featureId, filters, pagination).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
+                this.paginator.length = data.total_documents;
                 this.dataSource.data = data.issues;
             },
             error: error => {
@@ -88,8 +125,8 @@ export class IssueComponent {
 
     deleteFeature(id: string) {
         const swal = Swal.fire({
-            title: 'Delete Feature',
-            text: 'Are you sure want to delete this feature?',
+            title: 'Delete Issue',
+            text: 'Are you sure want to delete this issue?',
             icon: 'warning',
             confirmButtonText: 'Delete',
             confirmButtonColor: '#f44336',
