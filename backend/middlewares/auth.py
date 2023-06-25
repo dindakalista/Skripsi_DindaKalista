@@ -1,5 +1,6 @@
 from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi import FastAPI, Request
+from jwt import decode
 from bson import ObjectId
 from os import getenv
 

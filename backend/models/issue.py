@@ -107,7 +107,6 @@ class IssueGetAllModel(BaseModel):
 
 class IssueFilterModel(BaseModel):
     ref: Optional[RegexFromStr] = None
-    feature_id: Optional[IdFromStr] = None
     description: Optional[RegexFromStr] = None
     severity: Union[IssueSeverityEnum, None] = None
     reported_date: Optional[datetime] = None

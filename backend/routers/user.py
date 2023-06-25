@@ -6,8 +6,14 @@ from typing import Optional, Union
 from bson import ObjectId
 from models.user import UserCreateModel, UserUpdateModel, UserGetAllModel, UserGetModel, UserFilterModel, UserPaginationModel
 from json import loads as loads_json
+from os import getenv
+import requests
 
 router = APIRouter(prefix="/user")
+
+IMAGEKIT_TOKEN = getenv('IMAGEKIT_TOKEN')
+IMAGEKIT_UPLOAD_URL = getenv("IMAGEKIT_UPLOAD_URL")
+IMAGEKIT_API_URL = getenv('IMAGEKIT_API_URL')
 
 
 # Create user
@@ -122,12 +128,18 @@ def delete_user(id: str, request: Request, response: Response):
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "You do not have access to delete this user"}))
 
     try:
-        delete_result = request.app.database["users"].delete_one(
-            {"_id": ObjectId(id)}
-        )
+        user = request.app.database["users"].find_one({"_id": ObjectId(id)})
+        delete_result = request.app.database["users"].delete_one({"_id": ObjectId(id)})
 
         if delete_result.deleted_count != 1:
             return JSONResponse(status_code=404, content=jsonable_encoder({"detail": "Failed to delete user"}))
+
+        # hapus profile picture dari imagekit, biar ngga penuh :(
+        if user['picture_id']:
+            requests.delete(f"{IMAGEKIT_API_URL}/{user['picture_id']}", headers={"Authorization": f"Basic {IMAGEKIT_TOKEN}"})
+
+        # hapus semua issue yang di-report oleh user ini
+        request.app.database["issues"].delete_many({"reporter_id":  user["id"]})
 
         return JSONResponse(status_code=204, content=jsonable_encoder({"detail": "User deleted successfully"}))
 

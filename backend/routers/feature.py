@@ -26,9 +26,8 @@ def create_feature(request: Request, feature: FeatureCreateModel = Body(...)):
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))
 
+
 # Update feature
-
-
 @router.put("/{id}", response_description="Update feature")
 def update_feature(id: str, request: Request, feature: Optional[FeatureUpdateModel] = Body(None)):
     if not request.app.permission["authenticated"]:
@@ -122,12 +121,10 @@ def delete_feature(id: str, request: Request, response: Response):
             return JSONResponse(status_code=422, content=jsonable_encoder({"detail": "deleting feature failed"}))
 
         # remove feature id from user's permission
-        request.app.database["users"].update_many(
-            {}, {"$pull": {"permission": ObjectId(id)}})
+        request.app.database["users"].update_many({}, {"$pull": {"permission": ObjectId(id)}})
 
         # hapus semua issue di fitur ini
-        request.app.database["issues"].delete_many(
-            {"feature_id":  ObjectId(id)})
+        request.app.database["issues"].delete_many({"feature_id":  ObjectId(id)})
 
         return JSONResponse(status_code=204, content=jsonable_encoder({"detail": "deleting feature successful"}))
 
