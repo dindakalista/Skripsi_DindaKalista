@@ -1,27 +1,20 @@
-from pydantic import BaseModel, EmailStr, validator
+from pydantic import BaseModel, EmailStr
 from typing import Optional
 from models.user import UserGetModel
-from bson import ObjectId
+from models.utils import StrFromId
+
 
 class AuthLoginModel(BaseModel):
-    email    : EmailStr
-    password : str
+    email: EmailStr
+    password: str
+
 
 class AuthLoginReponseModel(BaseModel):
-    token : Optional[str]          = None
-    user  : Optional[UserGetModel] = None
+    token: Optional[str] = None
+    user: Optional[UserGetModel] = None
+
 
 class AuthChangePasswordModel(BaseModel):
-    id: ObjectId
+    id: StrFromId
     old_password: str
     new_password: str
-
-    @validator('id', pre=True)
-    def convert_id(cls, value):
-        if isinstance(value, str):
-            return ObjectId(value)
-
-        return value
-
-    class Config:
-        arbitrary_types_allowed = True
