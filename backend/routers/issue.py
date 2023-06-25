@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Body, Request, Response, status, HTTPException
+from fastapi import APIRouter, Body, Request, Response, HTTPException
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from typing import List, Optional, Union
+from typing import Optional, Union
 from bson import ObjectId
 from json import loads as loads_json
 from models.issue import IssueCreateModel, IssueUpdateModel, IssueGetAllModel, IssueGetModel, IssueFilterModel, IssuePaginationModel

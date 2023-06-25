@@ -1,10 +1,9 @@
-from fastapi import APIRouter, Body, Request, Response, status, HTTPException
+from fastapi import APIRouter, Body, Request, Response, HTTPException
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from pymongo.errors import DuplicateKeyError
-from typing import List, Optional, Union
+from typing import Optional, Union
 from bson import ObjectId
-from utils.hash import Hash
 from models.user import UserCreateModel, UserUpdateModel, UserGetAllModel, UserGetModel, UserFilterModel, UserPaginationModel
 from json import loads as loads_json
 

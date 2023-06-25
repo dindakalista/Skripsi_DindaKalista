@@ -1,9 +1,6 @@
 from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi import FastAPI, Request
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
 from bson import ObjectId
-from jwt import decode, ExpiredSignatureError, InvalidTokenError
 from os import getenv
 
 SECRET = getenv("JWT_SECRET")
