@@ -8,6 +8,7 @@ import { IssueService } from 'src/app/services/issue.service';
 import { IssueDialogComponent } from './issue-dialog/issue-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import Swal from 'sweetalert2'
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-issue',
@@ -31,6 +32,8 @@ export class IssueComponent {
         name: null
     };
     
+    currentUser: any;
+    isAdmin: Boolean = false;
     features: any[] = [];
     selectedFeatureId: string = '';
     isLoading: boolean = false;
@@ -38,11 +41,14 @@ export class IssueComponent {
     constructor(
         private featureService: FeatureService,
         private issueService: IssueService,
+        private authService: AuthService,
         private dialog: MatDialog,
         private matSnackBar: MatSnackBar,
     ) { }
 
     ngOnInit() {
+        this.currentUser = this.authService.getData().user;
+        this.isAdmin = this.currentUser?.role == 'ADMIN';
         this.fetchAllFeatures();
     }
 
@@ -77,6 +83,13 @@ export class IssueComponent {
             next: (data: any) => {
                 this.isLoading = false;
                 this.features = data.features;
+
+                if (!this.isAdmin) {
+                    this.features = this.features.filter((item: any) => {
+                        return this.currentUser?.feature_ids?.includes(item?._id);
+                    });
+                }
+
                 this.selectedFeatureId = this.features[0]._id;
                 this.fetchAllIssues();
             },
