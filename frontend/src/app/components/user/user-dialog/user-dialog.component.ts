@@ -35,7 +35,7 @@ export class UserDialogComponent {
     isEdit: boolean = false;
     isLoading: boolean = false;
     isPictureChange: boolean = false;
-
+    selectedRoleIsAdmin: boolean = false;
     prevFormData: any = {};
 
     constructor(
@@ -55,6 +55,11 @@ export class UserDialogComponent {
             this.form.get('password')?.removeValidators(Validators.required);
             this.prevFormData = this.form.value;
         }
+
+        this.subs.add(this.form.get('role')?.valueChanges.subscribe(value => {
+            this.selectedRoleIsAdmin = value == 'ADMIN';
+            this.form.get('feature_ids')?.[this.selectedRoleIsAdmin ? 'disable' : 'enable']();
+        }));
 
         this.fetchAllFeatures();
     }

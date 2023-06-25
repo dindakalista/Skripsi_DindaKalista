@@ -54,6 +54,7 @@
                 <mat-form-field class="form-field" appearance="outline" floatLabel="always">
                     <mat-label>Dev type</mat-label>
                     <mat-select formControlName="dev_type">
+                        <mat-option [value]="null">None</mat-option>
                         <mat-option *ngFor="let devType of devTypes" [value]="devType.value">{{ devType.key }}</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -71,6 +72,7 @@
             <mat-form-field class="form-field form-field-full-width" appearance="outline" floatLabel="always">
                 <mat-label>Developer name</mat-label>
                 <mat-select formControlName="dev_id">
+                    <mat-option [value]="null">None</mat-option>
                     <mat-option *ngFor="let developer of developers" [value]="developer._id">{{ developer.first_name + ' ' + developer.last_name + ' (' + developer.role + ')' }}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -93,6 +95,7 @@
             <mat-form-field class="form-field form-field-full-width" appearance="outline" floatLabel="always">
                 <mat-label>Tester name</mat-label>
                 <mat-select formControlName="qa_id">
+                    <mat-option [value]="null">None</mat-option>
                     <mat-option *ngFor="let tester of testers" [value]="tester._id">{{ tester.first_name + ' ' + tester.last_name }}</mat-option>
                 </mat-select>
             </mat-form-field>

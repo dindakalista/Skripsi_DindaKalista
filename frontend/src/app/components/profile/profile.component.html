@@ -38,7 +38,7 @@
                 <mat-error *ngIf="form.get('last_name')?.errors?.['required']">field is required!</mat-error>
             </mat-form-field>
     
-            <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+            <!-- <mat-form-field class="form-field" appearance="outline" floatLabel="always">
                 <mat-label>Role</mat-label>
                 <mat-select formControlName="role">
                     <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.key }}</mat-option>
@@ -50,7 +50,7 @@
                 <mat-select formControlName="feature_ids" multiple="true">
                     <mat-option *ngFor="let feature of features" [value]="feature._id">{{ feature.name }}</mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
         </div>
     </div>
 </div>

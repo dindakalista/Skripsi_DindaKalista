@@ -33,8 +33,8 @@ export class ProfileComponent {
         email       : [null, Validators.required],
         first_name  : [null, Validators.required],
         last_name   : [null, Validators.required],
-        role        : [null, Validators.required],
-        feature_ids : [[]],
+        // role        : [null, Validators.required],
+        // feature_ids : [[]],
     });
 
     constructor(

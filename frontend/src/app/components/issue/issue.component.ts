@@ -21,7 +21,7 @@ export class IssueComponent {
     subs = new Subscription();
 
     dataSource = new MatTableDataSource<any[]>([]);
-    displayedColumns: string[] = ['ref', 'description', 'reporter', 'reported_date', 'due_date', 'dev_type', 'severity', 'status', 'dev', 'dev_eta', 'dev_actual', 'qa', 'qa_eta', 'qa_actual', 'action'];
+    displayedColumns: string[] = ['ref', 'description', 'status', 'reporter', 'reported_date', 'due_date', 'severity', 'dev_type', 'dev', 'qa', 'action'];
 
     pagination: any = {
         index: 0,
@@ -33,7 +33,11 @@ export class IssueComponent {
     };
     
     currentUser: any;
-    isAdmin: Boolean = false;
+
+    isAdmin: boolean = false;
+    isQA: boolean = false;
+    isDev: boolean = false;
+
     features: any[] = [];
     selectedFeatureId: string = '';
     isLoading: boolean = false;
@@ -48,7 +52,19 @@ export class IssueComponent {
 
     ngOnInit() {
         this.currentUser = this.authService.getData().user;
+
         this.isAdmin = this.currentUser?.role == 'ADMIN';
+        this.isQA = this.currentUser?.role == 'QA';
+        this.isDev = this.currentUser?.role == 'FE' || this.currentUser?.role == 'BE';
+
+        if (this.isAdmin && this.isDev) {
+            this.displayedColumns.push('dev_eta', 'dev_actual');
+        }
+
+        if (this.isAdmin && this.isQA) {
+            this.displayedColumns.push('action', 'qa_eta', 'qa_actual');
+        }
+
         this.fetchAllFeatures();
     }
 

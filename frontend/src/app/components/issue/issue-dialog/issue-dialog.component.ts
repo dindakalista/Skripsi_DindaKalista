@@ -64,6 +64,10 @@ export class IssueDialogComponent {
         qa_actual     : [null]
     });
 
+    isAdmin: boolean = false;
+    isQA: boolean = false;
+    isDev: boolean = false;
+
     constructor(
         @Inject(MAT_DIALOG_DATA) private data: any,
         private dialog: MatDialogRef<IssueDialogComponent>,
@@ -78,6 +82,10 @@ export class IssueDialogComponent {
     ngOnInit() {
         this.isEdit = this.data.edit;
         this.currentUser = this.authService.getData()?.user;
+        
+        this.isAdmin = this.currentUser?.role == 'ADMIN';
+        this.isQA = this.currentUser?.role == 'QA';
+        this.isDev = this.currentUser?.role == 'FE' || this.currentUser?.role == 'BE';
 
         if (this.isEdit) {
             this.form.patchValue(this.data.issue);
@@ -95,6 +103,33 @@ export class IssueDialogComponent {
 
         this.fetchAllUsers();
         this.fetchAllFeatures();
+        this.initPermission();
+    }
+
+    initPermission() {
+        if (this.isDev) {
+            Object.entries((this.form!.controls)).forEach(([_, control]) => control.disable());
+            this.form.get('status')?.enable();
+            this.form.get('dev_id')?.enable();
+            this.form.get('dev_eta')?.enable();
+            this.form.get('dev_actual')?.enable();
+
+            this.statuses = this.statuses.filter(status => ['OPEN', 'IN_PROGRESS', 'DEV_DONE', 'NAB'].includes(status.value))
+        }
+
+        if (this.isQA) {
+            Object.entries((this.form!.controls)).forEach(([_, control]) => control.disable());
+            this.form.get('status')?.enable();
+            this.form.get('ref')?.enable();
+            this.form.get('severity')?.enable();
+            this.form.get('reported_date')?.enable();
+            this.form.get('description')?.enable();
+            this.form.get('qa_id')?.enable();
+            this.form.get('qa_eta')?.enable();
+            this.form.get('qa_actual')?.enable();
+
+            this.statuses = this.statuses.filter(status => ['OPEN', 'IN_PROGRESS', 'FAIL', 'PASS'].includes(status.value))
+        }
     }
 
     fetchAllUsers() {

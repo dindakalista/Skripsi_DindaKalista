@@ -36,7 +36,7 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+        <mat-form-field class="form-field" appearance="outline" floatLabel="always" *ngIf="!selectedRoleIsAdmin">
             <mat-label>Permission</mat-label>
             <mat-select formControlName="feature_ids" multiple="true">
                 <mat-option *ngFor="let feature of features" [value]="feature._id">{{ feature.name }}</mat-option>
