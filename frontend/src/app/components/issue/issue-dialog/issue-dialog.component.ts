@@ -69,7 +69,7 @@ export class IssueDialogComponent {
     isDev: boolean = false;
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) private data: any,
+        @Inject(MAT_DIALOG_DATA) public data: any,
         private dialog: MatDialogRef<IssueDialogComponent>,
         private formBuilder: FormBuilder,
         private snackBar: MatSnackBar,
@@ -91,6 +91,7 @@ export class IssueDialogComponent {
             this.form.patchValue(this.data.issue);
         } else {
             this.form.get('feature_id')?.setValue(this.data.feature_id);
+            this.fetchHighestRef();
         }
 
         if (this.currentUser) {
@@ -148,6 +149,25 @@ export class IssueDialogComponent {
         });
 
         this.subs.add(sub);
+    }
+
+    fetchHighestRef() {
+        this.isLoading = true;
+
+        this.subs.add(this.issueService.getHighestRef().subscribe({
+            next: (data: any) => {
+                this.isLoading = false;
+
+                const number = data.ref_number + 1;
+                const value = 'QA-' + (String(number).length <= 2 ? String(number).padStart(3, '0') : String(number));
+
+                this.form.get('ref')?.setValue(value);
+            },
+            error: error => {
+                this.isLoading = false;
+                this.snackBar.open(JSON.stringify(error.error.detail) || error.message);
+            }
+        }))
     }
 
     fetchAllFeatures() {

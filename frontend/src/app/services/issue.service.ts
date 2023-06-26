@@ -21,6 +21,10 @@ export class IssueService {
         return this.httpClient.get(`${this.API_URL}?feature_id=${featureId}&filters=${filters}&pagination=${pagination}`);
     }
 
+    getHighestRef() {
+        return this.httpClient.get(`${this.API_URL}/highest-ref`);
+    }
+
     create(data: any) {
         return this.httpClient.post(this.API_URL, data);
     }

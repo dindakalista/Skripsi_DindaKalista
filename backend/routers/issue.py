@@ -56,6 +56,42 @@ def update_issue(id: str, request: Request, issue: Optional[IssueUpdateModel] = 
         raise HTTPException(status_code=500, detail=str(error))
 
 
+# Get highest issue ref
+@router.get("/highest-ref", response_description="Get highest issue ref")
+def get_highest_issue_ref(request: Request):
+    if not request.app.permission["authenticated"]:
+        return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "Authentication failed! Token not provided"}))
+
+    try:
+        result = request.app.database["issues"].aggregate([
+            {
+                "$match": {
+                    "ref": { "$regex": "^QA-[0-9]+$" }
+                }
+            },
+            {
+                "$project": {
+                    "ref": 1,
+                    "refNumber": { "$toInt": { "$substr": ["$ref", 3, -1] } }
+                }
+            },
+            {
+                "$sort": {
+                    "refNumber": -1
+                }
+            },
+            {
+                "$limit": 1
+            }
+        ])
+
+        return JSONResponse(status_code=200, content={"ref_number": list(result)[0]["refNumber"]})
+
+
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error))
+
+
 # Get all issues
 @router.get("/", response_description="Get all issues", response_model=IssueGetAllModel)
 def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}"):
