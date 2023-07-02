@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
     subs = new Subscription();
     isLoading: boolean = false;
+    isPassVisible: boolean = false;
 
     form: FormGroup = this.formBuilder.group({
         email   : [null, [Validators.required, Validators.email]],

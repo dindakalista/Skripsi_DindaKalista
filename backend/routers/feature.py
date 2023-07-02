@@ -5,7 +5,8 @@ from typing import Optional, Union
 from bson import ObjectId
 from json import loads as loads_json
 from pymongo.errors import DuplicateKeyError
-from models.feature import FeatureCreateModel, FeatureUpdateModel, FeatureGetAllModel, FeatureGetModel, FeatureFilterModel, FeaturePaginationModel
+from models.feature import FeatureCreateModel, FeatureUpdateModel, FeatureGetAllModel, FeatureGetModel, FeatureFilterModel
+from models.shared import PaginationModel, SortModel
 
 router = APIRouter(prefix="/feature")
 
@@ -58,19 +59,30 @@ def update_feature(id: str, request: Request, feature: Optional[FeatureUpdateMod
 
 # Get all features
 @router.get("/", response_description="Get all features", response_model=FeatureGetAllModel)
-def get_all_feature(request: Request, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}"):
+def get_all_feature(request: Request, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}", sort: Union[str, None] = "{}"):
     if not request.app.permission["authenticated"]:
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "Authentication failed! Token not provided"}))
 
     try:
-        pagination = FeaturePaginationModel(**loads_json(pagination)).dict()
+        pagination = PaginationModel(**loads_json(pagination)).dict()
         filters = FeatureFilterModel(**loads_json(filters)).dict(exclude_none=True)
+        sort = SortModel(**loads_json(sort)).dict()
 
         page_index = pagination["index"]
         page_limit = pagination["limit"]
         skip_count = page_index * page_limit
 
-        features = list(request.app.database["features"].find(filters).skip(skip_count).limit(page_limit))
+        sort_field = sort["field"] if sort["field"] else "name"
+        sort_dir = sort["direction"]
+
+        features = list(
+            request.app.database["features"]
+                .find(filters)
+                .skip(skip_count)
+                .limit(page_limit)
+                .sort(sort_field, sort_dir)
+        )
+
         total_documents = 0
 
         if filters:

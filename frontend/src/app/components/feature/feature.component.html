@@ -27,10 +27,10 @@
     <!-- content -->
     <div class="content">
         <div class="table-container">
-            <table mat-table [dataSource]="dataSource" class="table">
+            <table mat-table [dataSource]="dataSource" class="table" matSort (matSortChange)="onSortDataChange($event)">
                 <!-- name column -->
                 <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <th mat-header-cell *matHeaderCellDef  mat-sort-header="name">Name</th>
                     <td mat-cell *matCellDef="let item">{{item.name}}</td>
                 </ng-container>
 

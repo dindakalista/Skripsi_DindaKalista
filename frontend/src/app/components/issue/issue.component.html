@@ -20,19 +20,19 @@
 
 <div class="content">
     <div class="table-container">
-        <table mat-table [dataSource]="dataSource" class="table">
+        <table mat-table [dataSource]="dataSource" class="table" matSort (matSortChange)="onSortDataChange($event)">
             <ng-container matColumnDef="ref">
-                <th mat-header-cell *matHeaderCellDef>Issue Ref</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="ref">Ref</th>
                 <td mat-cell *matCellDef="let item"> {{ item.ref }} </td>
             </ng-container>
     
             <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef>Description</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="description">Description</th>
                 <td mat-cell *matCellDef="let item"> {{ item.description }} </td>
             </ng-container>
 
             <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="status">Status</th>
                 <td mat-cell *matCellDef="let item">
                     <div class="pill-wrapper">
                         <div [class]="'pill ' + item.status.toLowerCase()">{{ item.status }}</div>
@@ -46,22 +46,22 @@
             </ng-container>
     
             <ng-container matColumnDef="reported_date">
-                <th mat-header-cell *matHeaderCellDef>Reported Date</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="reported_date">Reported Date</th>
                 <td mat-cell *matCellDef="let item"> {{ item.reported_date }} </td>
             </ng-container>
     
             <ng-container matColumnDef="due_date">
-                <th mat-header-cell *matHeaderCellDef>Due Date</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="due_date">Due Date</th>
                 <td mat-cell *matCellDef="let item"> {{ item.due_date }} </td>
             </ng-container>
     
             <ng-container matColumnDef="dev_type">
-                <th mat-header-cell *matHeaderCellDef>Dev Type</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="dev_type">Dev Type</th>
                 <td mat-cell *matCellDef="let item"> {{ item.dev_type }} </td>
             </ng-container>
     
             <ng-container matColumnDef="severity">
-                <th mat-header-cell *matHeaderCellDef>Severity</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="severity">Severity</th>
                 <td mat-cell *matCellDef="let item">
                     <div class="pill-wrapper">
                         <div [class]="'pill ' + item.severity.toLowerCase()">{{ item.severity }}</div>
@@ -74,14 +74,14 @@
                 <td mat-cell *matCellDef="let item"> {{ item.dev ? (item.dev?.first_name + ' ' + item.dev?.last_name) : '-' }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="dev_eta" *ngIf="isAdmin || isDev">
-                <th mat-header-cell *matHeaderCellDef>Dev ETA</th>
-                <td mat-cell *matCellDef="let item"> {{ item.dev_eta ? item.dev_eta : '-' }} </td>
+            <ng-container matColumnDef="dev_eta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="dev_eta">Dev ETA</th>
+                <td mat-cell *matCellDef="let item"> {{ item.dev_eta ? item.dev_eta + 'min' : '-' }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="dev_actual" *ngIf="isAdmin || isDev">
-                <th mat-header-cell *matHeaderCellDef>Dev Actual</th>
-                <td mat-cell *matCellDef="let item"> {{ item.dev_actual ? item.dev_actual : '-' }} </td>
+            <ng-container matColumnDef="dev_actual">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="dev_actual">Dev Actual</th>
+                <td mat-cell *matCellDef="let item"> {{ item.dev_actual ? item.dev_actual + 'min' : '-' }} </td>
             </ng-container>
 
             <ng-container matColumnDef="qa">
@@ -89,18 +89,18 @@
                 <td mat-cell *matCellDef="let item"> {{ item.qa ? (item.qa?.first_name + ' ' + item.qa?.last_name) : '-' }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="qa_eta" *ngIf="isAdmin || isQA">
-                <th mat-header-cell *matHeaderCellDef>QA ETA</th>
-                <td mat-cell *matCellDef="let item"> {{ item.qa_eta ? item.qa_eta : '-' }} </td>
+            <ng-container matColumnDef="qa_eta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="qa_eta">QA ETA</th>
+                <td mat-cell *matCellDef="let item"> {{ item.qa_eta ? item.qa_eta + 'min' : '-' }} </td>
             </ng-container>
 
-            <ng-container matColumnDef="qa_actual" *ngIf="isAdmin || isQA">
-                <th mat-header-cell *matHeaderCellDef>QA Actual</th>
-                <td mat-cell *matCellDef="let item"> {{ item.qa_actual ? item.qa_actual : '-' }} </td>
+            <ng-container matColumnDef="qa_actual">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="qa_actual">QA Actual</th>
+                <td mat-cell *matCellDef="let item"> {{ item.qa_actual ? item.qa_actual + 'min' : '-' }} </td>
             </ng-container>
     
             <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef></th>
+                <th mat-header-cell *matHeaderCellDef>Action</th>
                 <td mat-cell *matCellDef="let feature">
                     <button mat-icon-button color="primary" (click)="openIssueDialog(true, feature)">
                         <mat-icon>{{ isAdmin ? 'edit' : 'remove_red_eye' }}</mat-icon>

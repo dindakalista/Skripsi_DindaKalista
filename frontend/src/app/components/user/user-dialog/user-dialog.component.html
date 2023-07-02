@@ -6,7 +6,7 @@
 <mat-progress-bar mode="indeterminate" *ngIf="isLoading" class="progress"></mat-progress-bar>
 
 <mat-dialog-content>
-    <app-profile-picture [user]="data.user" (change)="onPictureChange()"></app-profile-picture>
+    <app-profile-picture [user]="data.user" [showDeleteButton]="isEdit && !!data?.user?.picture_id" (change)="onPictureChange($event)"></app-profile-picture>
 
     <form class="form" [formGroup]="form">
         <mat-form-field class="form-field" appearance="outline" floatLabel="always">
@@ -26,7 +26,10 @@
 
         <mat-form-field class="form-field" appearance="outline" floatLabel="always">
             <mat-label>password</mat-label>
-            <input type="text" matInput formControlName="password">
+            <input type="text" matInput [type]="isPassVisible ? 'text' : 'password'" formControlName="password">
+            <button mat-icon-button matSuffix type="button" (click)="isPassVisible = !isPassVisible">
+                <mat-icon>{{ isPassVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
         </mat-form-field>
 
         <mat-form-field class="form-field" appearance="outline" floatLabel="always">
@@ -46,6 +49,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-    <button mat-raised-button color="warn" (click)="dialog.close(isPictureChange)" [disabled]="isLoading">Cancel</button>
+    <button mat-raised-button color="warn" (click)="dialog.close(false)" [disabled]="isLoading">Cancel</button>
     <button mat-raised-button color="primary" (click)="submit()" [disabled]="isLoading">Save</button>
 </mat-dialog-actions>

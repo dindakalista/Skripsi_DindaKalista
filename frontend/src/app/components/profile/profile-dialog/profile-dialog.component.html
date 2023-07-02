@@ -8,13 +8,19 @@
     <form class="form" [formGroup]="form">
         <mat-form-field class="form-field" appearance="outline" floatLabel="always">
             <mat-label>old password</mat-label>
-            <input type="text" matInput formControlName="old_password">
+            <input type="text" matInput [type]="isOldPassVisible ? 'text' : 'password'" formControlName="old_password">
+            <button mat-icon-button matSuffix type="button" (click)="isOldPassVisible = !isOldPassVisible">
+                <mat-icon>{{ isOldPassVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
             <mat-error *ngIf="form.get('old_password')?.errors?.['required']">field is required!</mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-field" appearance="outline" floatLabel="always">
             <mat-label>new password</mat-label>
-            <input type="text" matInput formControlName="new_password">
+            <input type="text" matInput [type]="isNewPassVisible ? 'text' : 'password'" formControlName="new_password">
+            <button mat-icon-button matSuffix type="button" (click)="isNewPassVisible = !isNewPassVisible">
+                <mat-icon>{{ isNewPassVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
             <mat-error *ngIf="form.get('new_password')?.errors?.['required']">field is required!</mat-error>
         </mat-form-field>
     </form>

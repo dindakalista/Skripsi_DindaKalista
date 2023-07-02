@@ -13,7 +13,10 @@
 
         <mat-form-field class="field" appearance="outline" floatLabel="always">
             <mat-label>password</mat-label>
-            <input matInput type="password" formControlName="password">
+            <input matInput [type]="isPassVisible ? 'text' : 'password'" formControlName="password">
+            <button mat-icon-button matSuffix type="button" (click)="isPassVisible = !isPassVisible">
+                <mat-icon>{{ isPassVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
             <mat-error *ngIf="form.get('password')?.errors?.['required']">field is required!</mat-error>
         </mat-form-field>
 

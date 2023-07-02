@@ -2,7 +2,7 @@ from pydantic import BaseModel, EmailStr, Field, validator
 from typing import List, Optional
 from enum import Enum
 from utils.hash import Hash
-from models.utils import StrFromId, IdFromStr, RegexFromStr
+from models.shared import StrFromId, IdFromStr, RegexFromStr
 
 
 class UserRoleEnum(str, Enum):
@@ -13,8 +13,8 @@ class UserRoleEnum(str, Enum):
 
 
 class UserCreateModel(BaseModel):
-    picture_id: Optional[str] = None
-    picture_url: Optional[str] = None
+    picture_id: Optional[str] = ""
+    picture_url: Optional[str] = ""
     email: EmailStr
     first_name: str
     last_name: str
@@ -29,8 +29,8 @@ class UserCreateModel(BaseModel):
 
 
 class UserUpdateModel(BaseModel):
-    picture_id: Optional[str] = None
-    picture_url: Optional[str] = None
+    picture_id: Optional[str] = ""
+    picture_url: Optional[str] = ""
     email: Optional[EmailStr] = None
     first_name: Optional[str] = None
     last_name: Optional[str] = None
@@ -70,8 +70,3 @@ class UserFilterModel(BaseModel):
     active: Optional[bool] = None
     feature_ids: Optional[List[IdFromStr]] = None
     role: Optional[UserRoleEnum] = None
-
-
-class UserPaginationModel(BaseModel):
-    index: Optional[int] = 0
-    limit: Optional[int] = 20

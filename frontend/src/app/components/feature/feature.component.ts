@@ -31,6 +31,11 @@ export class FeatureComponent {
         name: null
     };
 
+    sort: any = {
+        field: 'name',
+        direction: 'asc'
+    };
+
     searchControl = new FormControl(null);
     isLoading: boolean = false;
 
@@ -102,8 +107,9 @@ export class FeatureComponent {
 
         const filters    = this.filters; 
         const pagination = this.pagination;
+        const sort = this.sort;
 
-        const sub = this.featureService.getAll(filters, pagination).subscribe({
+        const sub = this.featureService.getAll(filters, pagination, sort).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
                 this.dataSource.data = data.features;
@@ -111,7 +117,7 @@ export class FeatureComponent {
             },
             error: (error) => {
                 this.isLoading = false;
-                this.matSnackbar.open(JSON.stringify(error?.error?.detail) || error.message);
+                this.matSnackbar.open(error?.error?.detail || error.message);
             }
         });
 
@@ -135,18 +141,24 @@ export class FeatureComponent {
 
             this.isLoading = true;
             const sub = this.featureService.delete(id).subscribe({
-                next: () => {
+                next: (data: any) => {
                     this.isLoading = false;
+                    this.matSnackbar.open(data?.detail || '');
                     this.fetchAllFeatures();
                 },
                 error: (error) => {
                     this.isLoading = false;
-                    this.matSnackbar.open(JSON.stringify(error?.error?.detail) || error.message);
+                    this.matSnackbar.open(error?.error?.detail || error.message);
                 }
             });
 
             this.subs.add(sub);
         });
+    }
+
+    onSortDataChange(event: any) {
+        this.sort.direction = event.direction || 'asc';
+        this.fetchAllFeatures();
     }
 
     ngOnDestroy() {

@@ -4,7 +4,8 @@ from fastapi.responses import JSONResponse
 from typing import Optional, Union
 from bson import ObjectId
 from json import loads as loads_json
-from models.issue import IssueCreateModel, IssueUpdateModel, IssueGetAllModel, IssueGetModel, IssueFilterModel, IssuePaginationModel
+from models.issue import IssueCreateModel, IssueUpdateModel, IssueGetAllModel, IssueGetModel, IssueFilterModel
+from models.shared import PaginationModel, SortModel
 from classification.main import get_prediction
 
 router = APIRouter(prefix="/issue")
@@ -42,9 +43,14 @@ def update_issue(id: str, request: Request, issue: Optional[IssueUpdateModel] = 
     #     return JSONResponse(status_code=401, content=jsonable_encoder({ "detail": "access denied" }))
 
     try:
+        issue = issue.dict(exclude_none=True)
+
+        if "dev_type" in issue and "description" in issue:
+            issue["dev_type"] = get_prediction(issue["description"])
+
         update_result = request.app.database["issues"].update_one(
             {"_id": ObjectId(id)},
-            {"$set": issue.dict(exclude_none=True)}
+            {"$set": issue}
         )
 
         if update_result.modified_count != 1:
@@ -100,7 +106,7 @@ def get_highest_issue_ref(request: Request, feature_id: str):
 
 # Get all issues
 @router.get("/", response_description="Get all issues", response_model=IssueGetAllModel)
-def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}"):
+def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}", sort: Union[str, None] = "{}"):
     if not request.app.permission["authenticated"]:
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "Authentication failed! Token not provided"}))
 
@@ -112,12 +118,16 @@ def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None
         return {"total_documents": 0, "issues": []}
 
     try:
-        pagination = IssuePaginationModel(**loads_json(pagination)).dict()
+        pagination = PaginationModel(**loads_json(pagination)).dict()
         filters = IssueFilterModel(**loads_json(filters)).dict(exclude_none=True)
+        sort = SortModel(**loads_json(sort)).dict()
 
         page_index = pagination["index"]
         page_limit = pagination["limit"]
         skip_count = page_index * page_limit
+
+        sort_field = sort["field"] if sort["field"] else "ref"
+        sort_dir = sort["direction"]
 
         issues = list(request.app.database["issues"].aggregate([
             {
@@ -199,6 +209,11 @@ def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None
             },
             {
                 "$limit": page_limit
+            },
+            {
+                "$sort": {
+                    sort_field: sort_dir
+                }
             },
         ]))
 

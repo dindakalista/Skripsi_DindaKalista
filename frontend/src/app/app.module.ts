@@ -35,7 +35,7 @@ import { DashboardProfileComponent } from './components/dashboard/dashboard-prof
         ProfileComponent,
         ProfileDialogComponent,
         DashboardNavComponent,
-        DashboardProfileComponent,
+        DashboardProfileComponent
     ],
     imports: [
         BrowserModule,

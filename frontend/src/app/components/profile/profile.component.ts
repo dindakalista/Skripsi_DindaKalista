@@ -17,19 +17,25 @@ export class ProfileComponent {
     subs = new Subscription();
 
     user: any = {};
-    features: any = [];
+    // features: any = [];
     
     isLoading: boolean = false;
+    isPictureChange: boolean = false;
+    isUploadPicture: boolean = false;
+    isDeletePicture: boolean = false;
+    selectedPictureFile: File | null = null;
     prevFormData: any = {};
 
-    roles = [
-        { value: 'ADMIN', key: 'Admin' },
-        { value: 'FE',    key: 'Front End' },
-        { value: 'BE',    key: 'Back End' },
-        { value: 'QA',    key: 'Quality Assurance' },
-    ];
+    // roles = [
+    //     { value: 'ADMIN', key: 'Admin' },
+    //     { value: 'FE',    key: 'Front End' },
+    //     { value: 'BE',    key: 'Back End' },
+    //     { value: 'QA',    key: 'Quality Assurance' },
+    // ];
 
     form: FormGroup = this.formBuilder.group({
+        picture_id  : [null],
+        picture_url : [null],
         email       : [null, Validators.required],
         first_name  : [null, Validators.required],
         last_name   : [null, Validators.required],
@@ -40,7 +46,7 @@ export class ProfileComponent {
     constructor(
         private userService: UserService,
         private authService: AuthService,
-        private featureService: FeatureService,
+        // private featureService: FeatureService,
         private matSnackbar: MatSnackBar,
         private matDialog: MatDialog,
         private formBuilder: FormBuilder
@@ -48,7 +54,7 @@ export class ProfileComponent {
 
     ngOnInit() {
         this.fetchUser();
-        this.fetchAllFeatures();
+        // this.fetchAllFeatures();
     }
 
     openDialog() {
@@ -63,10 +69,12 @@ export class ProfileComponent {
     }
 
     onPictureChange(event: any) {
-        if (event.success) {
-            this.matSnackbar.open('Profile photo updated');
-        } else {
-            this.matSnackbar.open(JSON.stringify(event.error?.error?.detail) || event.error.message);
+        this.isPictureChange = true;
+        this.isUploadPicture = event.isUpload;
+        this.isDeletePicture = event.isDelete;
+        
+        if (event.isUpload) {
+            this.selectedPictureFile = event.file;
         }
     }
 
@@ -98,22 +106,22 @@ export class ProfileComponent {
         this.subs.add(sub);
     }
 
-    fetchAllFeatures() {
-        this.isLoading = true;
+    // fetchAllFeatures() {
+    //     this.isLoading = true;
 
-        const sub = this.featureService.getAll().subscribe({
-            next: (data: any) => {
-                this.isLoading = false;
-                this.features = data.features;
-            },
-            error: (error) => {
-                this.isLoading = false;
-                this.matSnackbar.open(JSON.stringify(error?.error?.detail) || error.message);
-            }
-        });
+    //     const sub = this.featureService.getAll().subscribe({
+    //         next: (data: any) => {
+    //             this.isLoading = false;
+    //             this.features = data.features;
+    //         },
+    //         error: (error) => {
+    //             this.isLoading = false;
+    //             this.matSnackbar.open(JSON.stringify(error?.error?.detail) || error.message);
+    //         }
+    //     });
 
-        this.subs.add(sub);
-    }
+    //     this.subs.add(sub);
+    // }
 
     isFormUpdated() {
         const prevFormData = JSON.stringify(this.prevFormData);
@@ -123,19 +131,26 @@ export class ProfileComponent {
     }
 
     updateUser(): any {
-        if (!this.isFormUpdated()) {
+        if (!this.isFormUpdated() && !this.isPictureChange) {
             return this.matSnackbar.open('You haven\'t updated anything');
         }
 
         this.isLoading = true;
 
-        const id  = this.authService.getData()?.user?._id || '';
+        const id  = this.user._id;
         const data = this.form.value;
 
-        const sub = this.userService.update(id, data).subscribe({
+        const extras = {
+            picture_file: this.selectedPictureFile || null,
+            is_delete_picture: this.isDeletePicture,
+            is_upload_picture: this.isUploadPicture
+        };
+
+        const sub = this.userService.update(id, data, extras).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
                 this.matSnackbar.open(data.detail);
+                window.location.reload();
             },
             error: (error) => {
                 this.isLoading = false;

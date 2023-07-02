@@ -21,7 +21,7 @@ export class IssueComponent {
     subs = new Subscription();
 
     dataSource = new MatTableDataSource<any[]>([]);
-    displayedColumns: string[] = ['ref', 'description', 'status', 'reporter', 'reported_date', 'due_date', 'severity', 'dev_type', 'dev', 'qa', 'action'];
+    displayedColumns: string[] = ['ref', 'description', 'dev_type', 'status', 'reporter', 'reported_date', 'due_date', 'severity', 'dev', 'dev_eta', 'dev_actual', 'qa', 'qa_eta', 'qa_actual', 'action'];
 
     pagination: any = {
         index: 0,
@@ -30,6 +30,11 @@ export class IssueComponent {
 
     filters: any = {
         name: null
+    };
+
+    sort: any = {
+        field: 'ref',
+        direction: 'desc'
     };
     
     currentUser: any;
@@ -56,14 +61,6 @@ export class IssueComponent {
         this.isAdmin = this.currentUser?.role == 'ADMIN';
         this.isQA = this.currentUser?.role == 'QA';
         this.isDev = this.currentUser?.role == 'FE' || this.currentUser?.role == 'BE';
-
-        if (this.isAdmin && this.isDev) {
-            this.displayedColumns.push('dev_eta', 'dev_actual');
-        }
-
-        if (this.isAdmin && this.isQA) {
-            this.displayedColumns.push('action', 'qa_eta', 'qa_actual');
-        }
 
         this.fetchAllFeatures();
     }
@@ -124,8 +121,9 @@ export class IssueComponent {
         const filters = {};
         const featureId = this.selectedFeatureId;
         const pagination = this.pagination;
+        const sort = this.sort;
 
-        const sub = this.issueService.getAll(featureId, filters, pagination).subscribe({
+        const sub = this.issueService.getAll(featureId, filters, pagination, sort).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
                 this.paginator.length = data.total_documents;
@@ -169,8 +167,9 @@ export class IssueComponent {
 
             this.isLoading = true;
             const sub = this.issueService.delete(id).subscribe({
-                next: () => {
+                next: (data: any) => {
                     this.isLoading = false;
+                    this.matSnackBar.open(data?.detail || '');
                     this.fetchAllIssues();
                 },
                 error: (error) => {
@@ -185,6 +184,12 @@ export class IssueComponent {
 
     changeSelectedFeatureId(event: any) {
         this.selectedFeatureId = event.value;
+        this.fetchAllIssues();
+    }
+
+    onSortDataChange(event: any) {
+        this.sort.field = event.active || 'ref';
+        this.sort.direction = event.direction || 'asc';
         this.fetchAllIssues();
     }
 

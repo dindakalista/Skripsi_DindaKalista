@@ -10,13 +10,13 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+    selector: 'app-user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.css']
 })
 export class UserComponent {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
-    
+
     subs = new Subscription();
 
     dataSource = new MatTableDataSource<any>([]);
@@ -32,6 +32,11 @@ export class UserComponent {
         last_name: null
     };
 
+    sort: any = {
+        field: 'first_name',
+        direction: 'desc'
+    };
+
     searchControl = new FormControl(null);
     isLoading: boolean = false;
 
@@ -39,7 +44,7 @@ export class UserComponent {
         private userService: UserService,
         private matSnackbar: MatSnackBar,
         private dialog: MatDialog
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.initSearch();
@@ -47,7 +52,7 @@ export class UserComponent {
     }
 
     ngAfterViewInit() {
-        this.initPaginator();    
+        this.initPaginator();
     }
 
     initPaginator() {
@@ -79,7 +84,7 @@ export class UserComponent {
 
     resetSearch() {
         this.filters.first_name = null;
-        this.filters.last_name  = null;
+        this.filters.last_name = null;
         this.searchControl.setValue(null, { emitEvent: false });
     }
 
@@ -104,10 +109,11 @@ export class UserComponent {
     fetchAllUsers() {
         this.isLoading = true;
 
-        const filters    = this.filters; 
+        const filters = this.filters;
         const pagination = this.pagination;
+        const sort = this.sort;
 
-        const sub = this.userService.getAll(filters, pagination).subscribe({
+        const sub = this.userService.getAll(filters, pagination, sort).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
                 this.dataSource.data = data.users;
@@ -139,8 +145,9 @@ export class UserComponent {
             this.isLoading = true;
 
             const sub = this.userService.delete(id).subscribe({
-                next: () => {
+                next: (data: any) => {
                     this.isLoading = false;
+                    this.matSnackbar.open(data?.detail || '');
                     this.fetchAllUsers();
                 },
                 error: (error) => {
@@ -151,6 +158,12 @@ export class UserComponent {
 
             this.subs.add(sub);
         });
+    }
+
+    onSortDataChange(event: any) {
+        this.sort.field = event.active || 'first_name';
+        this.sort.direction = event.direction || 'asc';
+        this.fetchAllUsers();
     }
 
     ngOnDestroy() {

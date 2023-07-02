@@ -48,13 +48,14 @@ export class FeatureDialogComponent {
         this.isLoading = true;
 
         const sub = this.featureService.create(data).subscribe({
-            next: () => {
+            next: (data: any) => {
                 this.isLoading = false;
+                this.matSnackBar.open(data?.detail || '');
                 this.dialog.close(true);
             },
             error: (error) => {
                 this.isLoading = false;
-                this.matSnackBar.open(JSON.stringify(error?.error?.detail) || error.message);
+                this.matSnackBar.open(error?.error?.detail || error.message);
             }
         });
 
@@ -65,13 +66,14 @@ export class FeatureDialogComponent {
         this.isLoading = true;
 
         const sub = this.featureService.update(id, data).subscribe({
-            next: () => {
+            next: (data: any) => {
                 this.isLoading = false;
+                this.matSnackBar.open(data?.detail || '');
                 this.dialog.close(true);
             },
             error: (error) => {
                 this.isLoading = false;
-                this.matSnackBar.open(JSON.stringify(error?.error?.detail) || error.message);
+                this.matSnackBar.open(error?.error?.detail || error.message);
             }
         });
 

@@ -16,7 +16,7 @@
 
     <div class="content">
         <div class="left-side">
-            <app-profile-picture [user]="user" (change)="onPictureChange($event)"></app-profile-picture>
+            <app-profile-picture [user]="user" (change)="onPictureChange($event)" [showDeleteButton]="user?.picture_id"></app-profile-picture>
         </div>
     
         <div class="right-side" [formGroup]="form">

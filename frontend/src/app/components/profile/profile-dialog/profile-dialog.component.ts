@@ -13,6 +13,8 @@ import { Subscription } from 'rxjs';
 export class ProfileDialogComponent {
     subs = new Subscription();
     isLoading: boolean = false;
+    isOldPassVisible: boolean = false;
+    isNewPassVisible: boolean = false;
 
     form: FormGroup = this.formBuilder.group({
         old_password: [null, Validators.required],
@@ -29,7 +31,7 @@ export class ProfileDialogComponent {
 
     onSubmit() {
         if (!this.form.valid) {
-            this.form.updateValueAndValidity();
+            return this.form.updateValueAndValidity();
         }
 
         const id = this.authService.getData()?.user?._id || '';

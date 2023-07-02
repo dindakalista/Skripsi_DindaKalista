@@ -4,7 +4,8 @@ from fastapi.responses import JSONResponse
 from pymongo.errors import DuplicateKeyError
 from typing import Optional, Union
 from bson import ObjectId
-from models.user import UserCreateModel, UserUpdateModel, UserGetAllModel, UserGetModel, UserFilterModel, UserPaginationModel
+from models.user import UserCreateModel, UserUpdateModel, UserGetAllModel, UserGetModel, UserFilterModel
+from models.shared import PaginationModel, SortModel
 from json import loads as loads_json
 from os import getenv
 import requests
@@ -50,6 +51,8 @@ def update_user(id: str, request: Request, user: Optional[UserUpdateModel] = Bod
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "You do not have access to update this user"}))
 
     try:
+        print(user)
+        
         update_result = request.app.database["users"].update_one(
             {"_id": ObjectId(id)},
             {"$set": user.dict(exclude_none=True)}
@@ -66,21 +69,28 @@ def update_user(id: str, request: Request, user: Optional[UserUpdateModel] = Bod
 
 # Get all users
 @router.get("/", response_description="Get all users", response_model=UserGetAllModel)
-def get_all_user(request: Request, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}"):
+def get_all_user(request: Request, pagination: Union[str, None] = "{}", filters: Union[str, None] = "{}", sort: Union[str, None] = "{}"):
     if not request.app.permission["authenticated"]:
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "Authentication failed! Token not provided"}))
 
     try:
-        pagination = UserPaginationModel(**loads_json(pagination)).dict()
+        pagination = PaginationModel(**loads_json(pagination)).dict()
         filters = UserFilterModel(**loads_json(filters)).dict(exclude_none=True)
+        sort = SortModel(**loads_json(sort)).dict()
 
         page_index = pagination["index"]
         page_limit = pagination["limit"]
         skip_count = page_index * page_limit
 
-        users = list(request.app.database["users"].find(
-            filters, {"password": 0}
-        ).skip(skip_count).limit(page_limit))
+        sort_field = sort["field"] if sort["field"] else "first_name"
+        sort_dir = sort["direction"]
+
+        users = list(
+            request.app.database["users"]
+            .find(filters, {"password": 0})
+            .skip(skip_count).limit(page_limit)
+            .sort(sort_field, sort_dir)
+        )
 
         total_documents = 0
 
@@ -139,7 +149,7 @@ def delete_user(id: str, request: Request, response: Response):
             requests.delete(f"{IMAGEKIT_API_URL}/{user['picture_id']}", headers={"Authorization": f"Basic {IMAGEKIT_TOKEN}"})
 
         # hapus semua issue yang di-report oleh user ini
-        request.app.database["issues"].delete_many({"reporter_id":  user["id"]})
+        request.app.database["issues"].delete_many({"reporter_id":  ObjectId(id)})
 
         return JSONResponse(status_code=200, content=jsonable_encoder({"detail": "User deleted successfully"}))
 

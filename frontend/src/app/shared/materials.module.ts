@@ -16,6 +16,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSortModule } from '@angular/material/sort';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -36,16 +38,18 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
         MatSnackBarModule,
         MatButtonToggleModule,
         MatMenuModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        MatSortModule,
+        MatTabsModule
     ],
     providers: [
-        { 
-            provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, 
-            useValue: { 
+        {
+            provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+            useValue: {
                 duration: 3000,
                 horizontalPosition: 'right',
                 verticalPosition: 'top'
-            } 
+            }
         },
         MatDatepickerModule
     ]

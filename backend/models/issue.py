@@ -4,7 +4,7 @@ from enum import Enum
 from datetime import datetime, date
 from models.user import UserGetModel
 from models.feature import FeatureGetModel
-from models.utils import StrFromId, IdFromStr, RegexFromStr
+from models.shared import StrFromId, IdFromStr, RegexFromStr
 
 
 class IssueSeverityEnum(str, Enum):
@@ -128,8 +128,3 @@ class IssueFilterModel(BaseModel):
         if not value:
             return None
         return datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%fZ")
-
-
-class IssuePaginationModel(BaseModel):
-    index: Optional[int] = 0
-    limit: Optional[int] = 20

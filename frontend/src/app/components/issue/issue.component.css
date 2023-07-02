@@ -73,7 +73,6 @@
 
 .table {
     width: 100%;
-    height: 100%;
 }
 
 .table .mat-mdc-header-cell {
@@ -83,8 +82,16 @@
     border-right: 1px solid rgb(213, 216, 224);
 }
 
+.table .mat-mdc-header-cell:last-child {
+    border-right: none;
+}
+
 .table .mat-mdc-cell {
     border-right: 1px solid rgb(213, 216, 224);
+}
+
+.table .mat-mdc-cell:last-child {
+    border-right: none;
 }
 
 .table .mat-mdc-header-cell.mat-column-ref,
@@ -113,27 +120,27 @@
 }
 
 .table .mat-column-reported_date {
-    min-width: 150px;
+    min-width: 160px;
     /* text-align: center; */
 }
 
 .table .mat-column-due_date {
-    min-width: 150px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
 .table .mat-column-dev_type {
-    min-width: 100px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
 .table .mat-column-severity {
-    min-width: 100px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
 .table .mat-column-status {
-    min-width: 100px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
@@ -142,12 +149,12 @@
 }
 
 .table .mat-column-dev_eta {
-    min-width: 100px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
 .table .mat-column-dev_actual {
-    min-width: 150px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
@@ -156,12 +163,12 @@
 }
 
 .table .mat-column-qa_eta {
-    min-width: 100px;
+    min-width: 140px;
     /* text-align: center; */
 }
 
 .table .mat-column-qa_actual {
-    min-width: 150px;
+    min-width: 140px;
     /* text-align: center; */
 }
 

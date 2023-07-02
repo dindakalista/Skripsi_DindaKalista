@@ -47,10 +47,10 @@ export class IssueDialogComponent {
     ];
 
     form: FormGroup = this.formBuilder.group({
+        feature_id    : [null],
         ref           : [null, Validators.required],
         description   : [null, Validators.required],
         severity      : [null, Validators.required],
-        feature_id    : [null, Validators.required],
         reporter_id   : [null, Validators.required],
         reported_date : [this.minDate, Validators.required],
         dev_type      : [null],
@@ -72,7 +72,7 @@ export class IssueDialogComponent {
         @Inject(MAT_DIALOG_DATA) public data: any,
         private dialog: MatDialogRef<IssueDialogComponent>,
         private formBuilder: FormBuilder,
-        private snackBar: MatSnackBar,
+        private matSnackBar: MatSnackBar,
         private userService: UserService,
         private featureService: FeatureService,
         private issueService: IssueService,
@@ -94,7 +94,7 @@ export class IssueDialogComponent {
             this.fetchHighestRef();
         }
 
-        if (this.currentUser) {
+        if (!this.isEdit && this.currentUser) {
             this.form.get('reporter_id')?.setValue(this.currentUser._id);
         }
 
@@ -144,7 +144,7 @@ export class IssueDialogComponent {
             },
             error: error => {
                 this.isLoading = false;
-                this.snackBar.open(JSON.stringify(error.error.detail) || error.message);
+                this.matSnackBar.open(JSON.stringify(error.error.detail) || error.message);
             }
         });
 
@@ -154,7 +154,7 @@ export class IssueDialogComponent {
     fetchHighestRef() {
         this.isLoading = true;
 
-        this.subs.add(this.issueService.getHighestRef().subscribe({
+        const sub = this.issueService.getHighestRef(this.data.feature_id).subscribe({
             next: (data: any) => {
                 this.isLoading = false;
 
@@ -165,24 +165,28 @@ export class IssueDialogComponent {
             },
             error: error => {
                 this.isLoading = false;
-                this.snackBar.open(JSON.stringify(error.error.detail) || error.message);
+                this.matSnackBar.open(JSON.stringify(error.error.detail) || error.message);
             }
-        }))
+        });
+
+        this.subs.add(sub);
     }
 
     fetchAllFeatures() {
         this.isLoading = true;
 
-        this.subs.add(this.featureService.getAll().subscribe({
+        const sub = this.featureService.getAll().subscribe({
             next: (data: any) => {
                 this.isLoading = false;
                 this.features = data.features;
             },
             error: error => {
                 this.isLoading = false;
-                this.snackBar.open(JSON.stringify(error.error.detail) || error.message);
+                this.matSnackBar.open(JSON.stringify(error.error.detail) || error.message);
             }
-        }))
+        });
+
+        this.subs.add(sub);
     }
 
     submit() {
@@ -190,10 +194,11 @@ export class IssueDialogComponent {
             Object.entries((this.form!.controls)).forEach(([_, control]) => {
                 control.markAsTouched()
             });
+
             return this.form.updateValueAndValidity();
         }
 
-        const value = this.form.value;
+        const value = this.form.getRawValue();
         const data  = this.data;
         
         this.isEdit ? this.updateIssue(data.issue?._id, value) : this.createIssue(value);
@@ -202,16 +207,19 @@ export class IssueDialogComponent {
     createIssue(data: any) {
         this.isLoading = true;
 
-        this.subs.add(this.issueService.create(data).subscribe({
-            next: data => {
+        const sub = this.issueService.create(data).subscribe({
+            next: (data: any) => {
                 this.isLoading = false;
+                this.matSnackBar.open(data?.detail || '');
                 this.dialog.close(true);
             },
             error: error => {
                 this.isLoading = false;
-                this.snackBar.open(JSON.stringify(error.error.detail) || error.message);
+                this.matSnackBar.open(JSON.stringify(error.error.detail) || error.message);
             }
-        }))
+        });
+
+        this.subs.add(sub);
     }
 
     updateIssue(id: string, data: any) {
@@ -225,16 +233,19 @@ export class IssueDialogComponent {
             data.due_date = new Date(data.due_date);
         }
 
-        this.subs.add(this.issueService.update(id, data).subscribe({
-            next: data => {
+        const sub = this.issueService.update(id, data).subscribe({
+            next: (data: any) => {
                 this.isLoading = false;
+                this.matSnackBar.open(data?.detail || '');
                 this.dialog.close(true);
             },
             error: error => {
                 this.isLoading = false;
-                this.snackBar.open(JSON.stringify(error.error.detail) || error.message);
+                this.matSnackBar.open(JSON.stringify(error.error.detail) || error.message);
             }
-        }))
+        });
+
+        this.subs.add(sub);
     }
 
     ngOnDestroy() {

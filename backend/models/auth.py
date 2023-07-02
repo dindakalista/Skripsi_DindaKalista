@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 from models.user import UserGetModel
-from models.utils import StrFromId
+from models.shared import IdFromStr
 
 
 class AuthLoginModel(BaseModel):
@@ -15,6 +15,6 @@ class AuthLoginReponseModel(BaseModel):
 
 
 class AuthChangePasswordModel(BaseModel):
-    id: StrFromId
+    id: IdFromStr
     old_password: str
     new_password: str

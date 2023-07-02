@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
-from models.utils import StrFromId, RegexFromStr
+from models.shared import StrFromId, RegexFromStr
 
 
 class FeatureCreateModel(BaseModel):
@@ -23,8 +23,3 @@ class FeatureGetAllModel(BaseModel):
 
 class FeatureFilterModel(BaseModel):
     name: Optional[RegexFromStr] = None
-
-
-class FeaturePaginationModel(BaseModel):
-    index: Optional[int] = 0
-    limit: Optional[int] = 20

@@ -5,10 +5,10 @@
     </div>
 
     <div class="profile-picture-action">
-        <button mat-icon-button class="profile-picture-button profile-picture-upload" (click)="onUpload()" [disabled]="isLoading">
+        <button mat-icon-button class="profile-picture-button profile-picture-upload" (click)="onUpload()" [disabled]="isLoading" *ngIf="showUploadButton">
             <mat-icon>cloud_upload</mat-icon>
         </button>
-        <button mat-icon-button class="profile-picture-button profile-picture-delete" (click)="onDelete()" [disabled]="isLoading">
+        <button mat-icon-button class="profile-picture-button profile-picture-delete" (click)="onDelete()" [disabled]="isLoading" *ngIf="showDeleteButton">
             <mat-icon>delete</mat-icon>
         </button>
     </div>
