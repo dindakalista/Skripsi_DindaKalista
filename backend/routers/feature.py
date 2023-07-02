@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from typing import Optional, Union
 from bson import ObjectId
 from json import loads as loads_json
+from pymongo.errors import DuplicateKeyError
 from models.feature import FeatureCreateModel, FeatureUpdateModel, FeatureGetAllModel, FeatureGetModel, FeatureFilterModel, FeaturePaginationModel
 
 router = APIRouter(prefix="/feature")
@@ -23,6 +24,9 @@ def create_feature(request: Request, feature: FeatureCreateModel = Body(...)):
         request.app.database["features"].insert_one(feature.dict())
         return JSONResponse(status_code=201, content={"detail": "Feature created successfully"})
 
+    except DuplicateKeyError as error:
+        raise HTTPException(status_code=409, detail="Feature already exist")
+    
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))
 
@@ -118,7 +122,7 @@ def delete_feature(id: str, request: Request, response: Response):
         )
 
         if delete_result.deleted_count != 1:
-            return JSONResponse(status_code=422, content=jsonable_encoder({"detail": "deleting feature failed"}))
+            return JSONResponse(status_code=422, content=jsonable_encoder({"detail": "Failed to delete feature"}))
 
         # remove feature id from user's permission
         request.app.database["users"].update_many({}, {"$pull": {"permission": ObjectId(id)}})
@@ -126,7 +130,7 @@ def delete_feature(id: str, request: Request, response: Response):
         # hapus semua issue di fitur ini
         request.app.database["issues"].delete_many({"feature_id":  ObjectId(id)})
 
-        return JSONResponse(status_code=204, content=jsonable_encoder({"detail": "deleting feature successful"}))
+        return JSONResponse(status_code=200, content=jsonable_encoder({"detail": "Feature deleted successfully"}))
 
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))

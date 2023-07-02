@@ -5,7 +5,7 @@ from typing import Optional, Union
 from bson import ObjectId
 from json import loads as loads_json
 from models.issue import IssueCreateModel, IssueUpdateModel, IssueGetAllModel, IssueGetModel, IssueFilterModel, IssuePaginationModel
-from naive_bayes.main import get_prediction
+from classification.main import get_prediction
 
 router = APIRouter(prefix="/issue")
 
@@ -58,26 +58,32 @@ def update_issue(id: str, request: Request, issue: Optional[IssueUpdateModel] = 
 
 # Get highest issue ref
 @router.get("/highest-ref", response_description="Get highest issue ref")
-def get_highest_issue_ref(request: Request):
+def get_highest_issue_ref(request: Request, feature_id: str):
     if not request.app.permission["authenticated"]:
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "Authentication failed! Token not provided"}))
+
+    if not feature_id:
+        return {"ref_number": 0}
 
     try:
         result = request.app.database["issues"].aggregate([
             {
                 "$match": {
-                    "ref": { "$regex": "^QA-[0-9]+$" }
+                    "ref": {"$regex": "^QA-[0-9]+$"},
+                    "feature_id": ObjectId(feature_id)
                 }
             },
             {
                 "$project": {
                     "ref": 1,
-                    "refNumber": { "$toInt": { "$substr": ["$ref", 3, -1] } }
+                    "ref_number": {
+                        "$toInt": {"$substr": ["$ref", 3, -1]}
+                    }
                 }
             },
             {
                 "$sort": {
-                    "refNumber": -1
+                    "ref_number": -1
                 }
             },
             {
@@ -85,8 +91,8 @@ def get_highest_issue_ref(request: Request):
             }
         ])
 
-        return JSONResponse(status_code=200, content={"ref_number": list(result)[0]["refNumber"]})
-
+        ref = list(result)
+        return {"ref_number": ref[0]["ref_number"] if ref else 0}
 
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))
@@ -101,6 +107,9 @@ def get_all_issue(request: Request, feature_id: str, pagination: Union[str, None
     # cegah user selain admin yang tidak memiliki akses ke fitur
     if (request.app.permission["role"] != "ADMIN" and feature_id not in request.app.permission["feature_ids"]):
         return JSONResponse(status_code=401, content=jsonable_encoder({"detail": "You do not have access to this feature"}))
+
+    if not feature_id:
+        return {"total_documents": 0, "issues": []}
 
     try:
         pagination = IssuePaginationModel(**loads_json(pagination)).dict()
@@ -318,7 +327,7 @@ def delete_issue(id: str, request: Request, response: Response):
         if delete_result.deleted_count != 1:
             return JSONResponse(status_code=422, content=jsonable_encoder({"detail": "Failed to delete issue"}))
 
-        return JSONResponse(status_code=204, content=jsonable_encoder({"detail": "Issue deleted successfully"}))
+        return JSONResponse(status_code=200, content=jsonable_encoder({"detail": "Issue deleted successfully"}))
 
     except:
         raise HTTPException(status_code=500, detail=str(error))
