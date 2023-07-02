@@ -1,0 +1,766 @@
+bug_description,dev_type
+Remove double asterisk symbol from toggle categories of users (check in academic admin and academic director).,Frontend
+dropdown for user field and categories of users no alphabetical order,Frontend
+list user in the dropdown user not displaying user and student in the title and class after I selected. there are still users and students who have not been displayed,Frontend
+"When I create a step with Question and field, and I change the toggle to question/field, I cannot save the data, the button save is not activated",Frontend
+"NO FR Localization on status ""Employability survey is not published"" on Employability Survey(ES) Details",Frontend
+"Need to add 1 column for Student Status if the student Active, suspended, Deactivated or Completed",Frontend
+"Wrong FR in column Status, it must be Status",Frontend
+Student get error when accessing the form via employability survey menu or via pending task menu,Frontend
+Do not display column selection checkbox if the Employability Survey is Continous Employability Survey,Frontend
+"Need to add option ""Not Sent"" on the column Employability Survey1 so user can filter all the Employability Surveywhich still not sent",Frontend
+Summary Step Type in Form Type Employability Survey is not displaying anything,Frontend
+Sweet alert Send Employability Survey: reduce countdown to 2s only,Frontend
+"Column School: Currently Filter is displaying All school in the platform, it must display only all school that connected to the Title and Class",Frontend
+Send to Student button is not hidden after I successfully click on send to student and success. ,Frontend
+"Employability Survey  Table: Switch column Class and Title. it must be column Title first then Class, from left to right",Frontend
+Data for Send fied is not populated in the Employability Survey card,Frontend
+"TASK: Validator receive task to validate the Form, but the task has no Description",Frontend
+"TASK: Student receive task to do revision of Employability Survey after being rejected, but the task has NO Description",Frontend
+Summary Step: Step optional that is not selected by the student must be not displayed in the summary,Frontend
+List of Employabiliity survey table: I created Employability Survey Process and Template selected is not displayed in the table,Frontend
+One Time ES: Task to complete ES have no Due Date and  expired date in the description displayed as undefined,Frontend
+Table: Filter and sorting in column status is not working yet,Frontend
+Employability Survey status is Not Sent but in table the button for reminder already displayed. It is more make sense if the button reminder displayed after the status is Sent,Frontend
+"We have 2 status column in the Employability Survey Parameter table, but we still only have 1 in Employability Survey Result table. I think we need to make it the same as in Employability Survey parameter, so it is consistent",Frontend
+"In Employability Survey List Table, Filter on Column Class has to be cascade after filter title",Frontend
+There is no radio button for Relative Date and Exact Date in the Step 1: Employability Survey Parameter for Continuous Employability Survey ,Frontend
+"Add Validation for the Send Date in Continuous Employability Survey (Relative Date), the minimum number user can enter is 1, so user cannot enter 0 days after PASS decision",Frontend
+"On column Template Selected in Employability Survey Table, if the continuous is using same template, it should not displayed multiple times in the table.",Frontend
+"When user click sent to student and the Employability Survey has been sent, the status of Employability Survey is not directly changed to ""Published"", need to refresh the page first then the status will change from Unpublish to Published (test case: using One Time Employability Survey)",Frontend
+"limit recipient as validator to (academic director, certifier admin, operator)",Frontend
+Export: There is error when user want to export Employability Survey Result. Cannot read properties of undefined (reading 'student_responses'),Frontend
+Export: The button Export is not active when I select all student in the table using checkbox in column header,Frontend
+"Fix: Display ""Send to student"" button only once in the beginning and once it is published, and then hide it.",Frontend
+"Employability Survey Parameter for a sent Employability Survey must be non-editable for Date and Expiration date. Remove ""Employability Survey"" button for 2nd and 3rd Employability Survey when already sent to at least 1 student.",Frontend
+Task complete Employability Survey for student. Need a space between The description of task with the due date 25/08/2022,Frontend
+Display student name on Task description for validator to easily identify the student. ,Frontend
+"Task: Click task Revision it redirect the student to wrong url, so the student can see the form",Frontend
+"Add spinner to ""Send Reminder"" button to prevent multiple clicks before the first process is done.",Frontend
+List of Employability Survey table: cannot filter on column template selected. it seems the dropdown list still taking on the list of question tools,Frontend
+Make the field non-mandatory but display a warning message if not completed to prevent submission blockage.,Frontend
+Form builder: customer need to have answer type Continous study on the form builder,Frontend
+There is error TypeError: Cannot set properties of undefined (setting 'status') Veuillez alerter l'administration when I try to filter column Employability Survey 2,Frontend
+"Notification and message: when I create a notification template, I cannot move to other part of the text by clicking using mouse. i can only navigate using arrow keyboard",Frontend
+"When user change the Employability Survey name, it won't change on the title of the page",Frontend
+"When I click the search field in school column, I cannot see the drop down list of schools in full sentence because it got cut",Frontend
+Add Sweet Alert to notify user if the Employability Survey name already exists.,Frontend
+"I notice when Employability Survey is sent to student the color is RED, it supposed to be Yellow (sent to student) for RED color it should be for when Employability Survey is rejected by validator",Frontend
+Add Employability Survey Process name in Tasks in Complete Employability Survey,Frontend
+Parsing on Dashboard -> Recent Mail for custom mail has CKEditor commented code,Frontend
+"User able to click ""Sent to Student"" Multiple times in continous Employability Survey and they will get multiple tasks and notif for the same Employability Survey Process",Frontend
+"When the Employability Survey Template is already published and sent to students, the form template used in the Employability Survey Template cannot be unpublished on the form builder.",Frontend
+"After user edit the Employability Survey Parameter and move toEmployability Survey ES Result or Leave, there is no SWAL to save the change display",Frontend
+Use the search function that supports accent and prevent deletion of data in the search field when typing slice (/).,Frontend
+There is SWAL error display when I try to search 'ADMTC' in Assigned to column,Frontend
+"After I reject the step as validator, the Employability Survey status and Employability Survey status card is Completed by Student not Rejected by Validator.",Frontend
+"The Send Date in the Student Card is populated from the Send Date in the Employability Survey Parameter, not when the Employability Survey is sent to the student",Frontend
+One Time There is a SWAL error display when I click the Employability Survey sub-menu in Student UI,Frontend
+student button is hidden when make Employability Survey from student table,Frontend
+"Remove hover cursor pointer on Survey Name, Title, and Class columns of Employability survey table. Use pointer cursor only for clickable elements. ",Frontend
+UI : Add tooltip in dropdown panel on Employability Survey in Columns :  - Title - Class - Template Selected  - Survey Type,Frontend
+UI : Panel on filter in student table parameter to be below of the input as currently panel is  overlapping with user input,Frontend
+"Functionality : In One Time Employability Survey, Student receives the Employability Survey, but in Employability Survey Parameter student table, said student still can be excluded. (If student already received Employability Survey, they cannot be excluded  anymore)",Frontend
+UI: Add tooltip in Student table in Step 1: Employability Survey Parameter in Include column,Frontend
+One Time: Add Filter for Included column: - All - Sent to student  - Included  - Excluded  Add Sorting: - Included - Not Included - Sent to Student  ,Frontend
+"One Time: after user click on send to student button, don't hidden the button, make it become inactivate and will Only active if there is new student included.",Frontend
+"In the create Employability Survey pop up and there is an sweet alert error, after the sweet alert error closed, it should be redirect back to create Employability Survey pop up",Frontend
+"In the create Employability Survey pop up, for RNCP Title field, show RNCP Title that only have student in the dropdown",Frontend
+In the Employability Survey pop up add asterisk symbol for the mandatory field and warning message if user left empty the field,Frontend
+"One time : In the step 2 Employability Survey result table, only display student data that Included in the Step 1 Employability Survey parameter",Frontend
+"One time : After I set parameter in step 1 Employability Survey parameter, then I include student by click toggle on the student table. Do not refresh the Parameter section",Frontend
+"In the step 2 Employability Survey Result, in Employability Survey status column  if data is empty give it ""X"" with a tooltip ""Not generated""",Frontend
+"One time : After click Send to student button, if the student is already included change the toggle with Check",Frontend
+"When user add new chain of Employability Survey, seperate container Employability Survey Parameter with student table",Frontend
+One time : In the step 2 Employability Survey Result for Employability Survey status already send.,Frontend
+"After Final step rejected by validator, As Student I can only modify the final step where I should be able to modify all of the step within the Form",Frontend
+AFter clicking on the send email in action button  then  canceling the action a white dot apppears on it,Frontend
+"One time Employability Survey: When I create Employability Survey from Student table, in the create Employability Survey pop up I see the warning text for date send & date expiration is overlaping with text below it.",Frontend
+"I see the dropdown list in column Registration status, status, Final transcript result and included, the list are still not in order (A to Z)",Frontend
+"After i successfulyt logging as academic director, it will redirect to title rncp menu, and it's not to mailbox menu",Frontend
+One time : The button label Include & Exclude and also the tooltip is not changed to [FR] when user changed the localization  ,Frontend
+"In the list of Employability Survey table, after I sort data then click reset. I notice the reset is not working so the data still in sort",Frontend
+When I zoom in until 100% in my web browser the UI of Step 2: Employability Survey Result table is not shown properly. :,Frontend
+"In the list of Employability Survey table, I notice the daa in column ""Survey Type"" is not left align. it should be left align because the data is text. ",Frontend
+"In the list of Employability Survey table, In column Status I notice there are no option ""Not sent"" need to include status Not sent in the status filter",Frontend
+"One time : Column Final Transcript Result Incorret [FR] Final Transcipt Result , the should be [FR]  Relevé de notes final",Frontend
+"In the step 2 ES Result, I notice the tooltip for column ES Status is not accurate. it should be  [EN] ES Status || [FR] Statut de l'enquête ",Frontend
+In the step 2 ES Result I notice when I hover data for status (lock icon) there is no tooltip,Frontend
+"Employability Survey Tabel - School column In school colum, when we try to search school that not in the tabel it not display 'no data to show'",Frontend
+"Change tooltip for Final transcript status to have only the first word capitalized.
+Change tooltip for Pass status to ""Passed"".",Frontend
+"List of Employability Survey - Icon When I change the language, the icon is not displayed",Frontend
+"dropdown list in the column included incorrect ""already send to student"" the shoulde be ""send to student""",Frontend
+"In the Employability Survey Card, I notice the format for send date when in [FR] is incorrect, there should be comma but in env there are no comma",Frontend
+"After I do the export in the step 2 Employability Survey result and check on my google drive, I see the spreadsheet is empty, there are no student data populated in the spreadsheet",Frontend
+button include and exlude is not working as well as (delay),Frontend
+when check on the student card  & Student UI >> Employability survey the format for send date and due date there is no comma when check on student UI ,Frontend
+Employability Survey card format name in student card wrong ,Frontend
+"name PASS not consistent, should be the name is Passed",Frontend
+"In the menu task -> Pending menu, I see the date that displayed in pending card is due date where it should be send date of Employability Survey",Frontend
+"Continuous Employability Survey: When I try to Add chain, one of mandatory field did't display warning message",Frontend
+"Currently, when I access Step 1 Employability Survey parameter for Employability Survey process I get SWAL error",Frontend
+Continuous : Continuous Employability Survey toggle is displaying toggle is wrong ,Frontend
+Continuous : I see the answer that already selected before is appear in the dropdown,Frontend
+The include toggle is active for unselected students,Frontend
+"As the student, i see the completed by student have check status for me, though my task has been rejected by validator",Frontend
+there is no SWAL after click button complete revision in the form filling,Frontend
+"As a validator, I can't see the validation notification in the Employability Survey mailbox, nor use the 'search bar' in the Task Table description column.",Frontend
+The FR localization of Exact Date and Relative Date is switched,Frontend
+"As validator I want to reject the ES of student, but when reject it display SWAL error",Frontend
+No option for filtering complete derogation/dispense form in the task description column filter,Frontend
+Use consistent sorting function for template type in ascending order (A-Z) and descending order (Z-A).,Frontend
+"Display only Title/Class/School related to academic director School connected in the ""Asking a Form"" pop-up.",Frontend
+"Task of Derogation/Dispense Form to Complete the reference is not displayed, also the from is EMPTY",Frontend
+"In the student - derogation/dispense table, the status is not changed to [EN] Waiting for validation [FR] En attente de validation even though the step requires validation for certifier admin.",Frontend
+Task of Derogation/Dispense Form to Validate : <Reference>  displayed  : TASKS_derogation_dispense.final_validate_form_process in certifier admin task,Frontend
+"In menu student > derogation/dispense after i complete the form, status of the form didnt change to orange dot",Frontend
+"After certifier admin ask revision to academic director, in menu students > derogation/dispense the status not change to yellow dot",Frontend
+Filter status on derogation/dispense table is missing optionn validated,Frontend
+"Display only Title/Class/School related to academic director School connected in the ""Asking a Form"" pop-up. ",Frontend
+Folder name of derogation/dispense in acad kit is wrong it display DEROGATION_OR_DISPENSE should be : [EN] Derogation/dispense [FR] Dérogation/Dispense,Frontend
+"The derogation/dispense folder format is incorrect. It does not display the summary document, reference folder, or expected step document.",Frontend
+i see the option filter in each column the dropdown didnot reflected with data that displayed on the table,Frontend
+"In Form template type dropdown, I see option Derogation/Dispense in the dropdown written ""DEROGATION.Derogation/Dispense"" it should be ""Derogation/Dispense"".",Frontend
+"there is option [EN]Rejected By Validator, when it should be [EN[Ask for revision. Also the the FR localization for Validated is still incorrect, it display  [FR]Valider when it should be [FR]Acceptée",Frontend
+some key is not populated properly in the notification RegUser_N1,Frontend
+FE GUIDELINES dropdown position be overlapping with field input in the select decision and alphabetical yet,Frontend
+" in FR displaying ""Editer"" should be Modifier",Frontend
+unresponsive tables when the resolution is 100% the text is cut off and the scroll doesn't work,Frontend
+Jury Type and Jury Characteristic dropdown position be overlaping  and not alphabetical order  FE GUILDELINES,Frontend
+There is a SWAL Error display when I try to modify a document in the Subject Certifications sub-menu in the Student UI,Frontend
+There is no folder displaying the Passport and CV document in the Subject od Certification sub-tab in the Student Card,Frontend
+The document name is written in English not France even though user upload it in France,Frontend
+The passport and CV document isn't change right away after I Modify it in the Acad Kit. I need to refresh it first.,Frontend
+"title incorrect because displaying ""Step 2. Set up session""",Frontend
+The passport and CV document isn't removed right away after I remove it in the Student Card. I need to refresh it first.  Also apply for the modify.,Frontend
+"when I modify document and I click add this file should not exit the edit document dialog and only change the document, before the document is submitted.",Frontend
+List of Jury Organization table There is no option Retake Grand Oral Off Platform in the dropdown filter  of column Type,Frontend
+"I see the localization inside ""Upload presentation document"" dialog is ""Fichier Acceptés"" not ""Fichier Acceptéd"".",Frontend
+"I see the localization inside ""Edit Document"" dialog, for document type is incorrect. it still displaying the key ACAD_KIT.DOC like this ""ACAD_KIT.DOC.Document Type"".",Frontend
+"i see label ""Jury characteristic "" not asterik on dialog jury organization.",Frontend
+The block that is got retake display empty it should display dash icon,Frontend
+"The Field name on the modify doucment pop up display: - Type of document - name of document - Document type  But for the document type, it display: ACAD_KIT.DOC.Document Type (both in EN and FR)",Frontend
+"when i resolve download document, spinner appear/loading . but when spinner loading i still select another card .",Frontend
+SWAL Unsaved Changes is displayed after saving the changed decision,Frontend
+name Studennt not expection. expected Student name with format : <student last name><student first name><student civility>,Frontend
+"The SWAL for multiple student publish is not correct, when I check 1 student and then click on next page. Then I check 1 student again. I click publish button above the table. Show the SWAL, but is not correct and just show 1 student, not 2 students",Frontend
+"When I open a edit dialog on subject for certification with name Grad Oral - Retake MPI 2022 - GO - Juliet 2022, I see field: [EN] ""Nameof Document"" [FR] ""Nomdu document"" and ""Type dedocument""",Frontend
+type of document and name of document in academic kit not sincron that is student UI,Frontend
+Pending tasks Task Déposer CV and Déposer Passeport Acceptéd is wrong,Frontend
+in the Assign One of Several Correctors field there is double asterik symbol and there is no text error message,Frontend
+"in the Assign One of Several Correctors field dropdown overllaping, no alphabetical order yet and not have all option. Fe GUILDELINES",Frontend
+There is no button to send an email in the action column,Frontend
+ there is no Assign Grand Oral Corrector and mark entry for retake grand oral in the dropdown description column,Frontend
+"FE GUILDELINES in the select entity, select school type, select school and select user type field  dropdown still display overlapping.",Frontend
+tooltip display Grand Oral PDF displaying still wrong and does not match the hovered text,Frontend
+"jury type and jury characteristik there is no ""None"" option and in FR ""None"" for select certifier, select RNCP Title, select a class field display ""Pas de sélection""",Frontend
+"dropdown not have ""None"" option and not alphabetical order yet",Frontend
+"when click ""Download Previous Grand Oral"" not open new tab",Frontend
+"when you add a new specialization and click on another tab without saving first, there is so swal TMTC_S01",Frontend
+"For Title RNCP Title Management there is quatation mark ("") in FR",Frontend
+when adding a specialization there is no swal error and the data in the specialization can be the same or not unique,Frontend
+dropdown position be overlapping with field input - Validation 1 - Validation 2 (precentage and sign option) - Minimum level of mastery,Frontend
+"when adding a competency block, the competency button inside the block is inactive and cannot proceed to the next step",Frontend
+"when I add the phrase for competency in the FR language, it doesn't display the phrase type. but after I change to EN and change again to FR it will display the phrase type",Frontend
+button +criteria evaluation inactive,Frontend
+dropdown position be overlapping with field input - Validation 1 - Validation 2 (precentage and sign option) - Minimum level of mastery,Frontend
+dropdown position be overlapping with field input in the phrase type,Frontend
+The color in the text cannot be read because the color for the text is too bright (yellow color),Frontend
+The dropdown in filter class get cut off,Frontend
+When hover on specialization column there is no tooltip,Frontend
+ dropdown position be overlapping with field input in the select Specialization,Frontend
+"in FR display  ""Titre RNCP - Centre de Préparation"" should be display ""Titres RNCP - Centre de Préparation",Frontend
+"When I Exempt some of the bloc, in the exemption bloc section I see the specialization bloc is also get exempted.",Frontend
+"in [FR] display ""Title RNCP"" there is no word Connecté.  should show ""Titre RNCP Connecté""",Frontend
+"On the student UI > My file > Course, I see the specialization name are displayed [Object object].",Frontend
+"Sort the dropdown alphabetically and select ""None"" option. Validate minimum mastery level and select specialization field for phrase type.",Frontend
+in the phrase type above the table displays the type of phrase that is cut off,Frontend
+Edit Connected RNCP Title Select Specialization should be dropdown display alpha order  FE Guideline,Frontend
+I remove specialization who have not connected at any school. I get a swal error after I click save button,Frontend
+List of block competencies is not in order,Frontend
+dropdown position be overlapping with field input Select RNCP Title and Select Class,Frontend
+in [EN] Text toggle No Spécialisation incosistent because have accent,Frontend
+"When click save button in step 2 Template Competencies, there is no spinner to indicate that saving process is still in progress",Frontend
+"dropdown position be overlapping with field input Specialization, still not alphabetical order and not have 'None' Option",Frontend
+"When I add specialization in class parameter, it required me to save it 2 time to be able to move to other tab.",Frontend
+"Block Accordion Add Phrase for Block None in the dropdown in FR should be display ""Aucune""",Frontend
+"add specialization dropdown there is no ""None"" in EN and ""Aucune"" in FR option in the specialization",Frontend
+on the Student card when I check on [FR] the label for switch Add specialization it's not consistent compared with class parameter.,Frontend
+Student Card when Add specialization click on the button in SWAL I can see the specialization of the student is still to Internet of Things,Frontend
+"Job description when display excess text ""&nbsp;"" at the end of the word",Frontend
+student card when dropdown position be overlapping with field input in the select Specialization,Frontend
+"select RNCP Title not displaying field for S-RM2C, even though there is a title S-RM2C when I select in column school",Frontend
+"On the form filling of job desciption, if student have 10 or more step, I see the step 10 is overlaping the step name.",Frontend
+"On the form filling job description, if student add new line of mission, it will trigger the mandatory field on other field (so all field become red).",Frontend
+"Student Mrs Lamia ADJAL are exempted from bloc 1 & 2 but in the form filling of job description, bloc 1 & 2 are still included.",Frontend
+"Section ""The Student"" is not displayed right when using the Search field",Frontend
+"when I delete specialization then do other action, the deleted specialization will appear again",Frontend
+there is no line under the field phrase type and phrase name when add phrase,Frontend
+"in the select block, Select subject and Select test field display not alphabetical order",Frontend
+"The document and document type fields are not in alphabetical order and lack a ""None"" option in the dropdown. Additionally, the ""All"" option is not available in the dropdown",Frontend
+"in the  Assign one of several Correctors there is no ""None and All"" option in the dropdown, dropdown overlapping,  and not alphabetical order",Frontend
+The block specialization not accurate after I select specialization in the student card,Frontend
+Student who did not take specialization bloc see the specialization bloc in their mark entry AutoEval.   to mark entry  to student card,Frontend
+In the test preview bloc display not accurate. not match in the bloc  step 2. template competences,Frontend
+the icon warning outside the input card to eval pro correction,Frontend
+Need to disable specialization block exemption in the setup grand oral schedule table,Frontend
+check to the preview if there are many blocks to be displayed the page will be unresponsive to the page,Frontend
+there is swal error when i try t access the page correction eval pro,Frontend
+"Check for the result Pro Eval PDF,  i see empty page number    to eval pro",Frontend
+i got another competency that is not related to the specialization that affected the student,Frontend
+Dropdown column Compétences not following FE Guidelines,Frontend
+"Connecting specialization to school when click on outside drop down, the dropdown still displayed",Frontend
+"I cannot add competency more than 1 competency on block competency . you can use title ""S-MA DECALE FEV 2023""",Frontend
+"As ADMTC Admin, when I edit connected RNCP Title and select specialization, I can choose ‘None’ option but at the same time I still can pick other options",Frontend
+Need to Implement SWAL + add Validation from BE to prevent user from add Block if there is at least 1 student grand oral mark entry done,Frontend
+"School Detail Connected RNCP Title when I click option ""None"", the option is not checked",Frontend
+"When i click option ""None"", it shows a SWAL Error, TypeError and when i click OK, it shows infinite spinner",Frontend
+When student download grandoral Pdf Result in the subject for certfication. PDF result not accurate in the  mark entry,Frontend
+ Connecting Specialization to school The specialization dropdown to big FE Guidelines,Frontend
+"Need to remove none in dropdown Phrase type, Validation 1,  Validation 2, Minimum Level of Mastery since it's mandatory field.",Frontend
+"In the mark entry of grand oral, I see below the bloc card, for specialization is still display B5 instead of S1",Frontend
+Connecting Specialization to a new student Need to remove none in dropdown  Specialization since it's mandatory field. ,Frontend
+Document PDF after I check document pdf there is new page same with the first page,Frontend
+"in the column specialization  the status of the specialization is retake, it should display a green tick",Frontend
+for the dash between bloc and specialization incosistent,Frontend
+Change mark entry for Retake Grand Oral to display S2 specialization card.,Frontend
+"Make ""Complete Revision Text"" a mandatory field and disable the save button until all fields are filled",Frontend
+[General Notification][Save button] I get swal error after I click save button for set general notification,Frontend
+"To prevent redirection to step 4 without clicking the submit button, add a submit button to the form",Frontend
+[Employablity Survey] After I fill the form filling until step 3 and I back in the step 2 I cannot modify step 2,Frontend
+[Employabilty Survey] I still can edit other step after click submit form to validate,Frontend
+Use lists and paragraphs to improve form usability and control the data collected in Form Builder's Step Details on the question section.,Backend
+some characters value are hidden in field type and field position.,Frontend
+validator rejected resume -> student completed revision and redirect in the final step (validator no validate yet),Frontend
+When i add the question in form builder below field option is populated with mandatory text warning  even though the option field is empty.,Frontend
+After I rejected form -> as <user who complete to form> back in the step before can modify but there is no button,Frontend
+"the option should be ""Preparation Centre Eval Soft Skill""",Frontend
+"check in the correction type there is no ""Academic Director""",Frontend
+"Multiple radio buttons, only Mark Entry and Multiple date should be available, but Multiple date is not generated, causing a blocking issue during check-in.",Frontend
+"When add new document for document expected, the dialog is not looks good properly in FR",Frontend
+ date in the mark entry is not accurate and does not match the date set in the test creation   check also in the pdf result,Frontend
+"When I not yet finish mark entry all student, I see Submit button is enable",Frontend
+the mark entry should show multiple dates consistent with preview test and pdf result,Frontend
+The task date preview for uploading expected document did not reflect the date inputted in the multiple dates form,Frontend
+The task to upload expected document is generated 6 times in total after validating the second mark entry,Frontend
+I can add the test subject on the class already started ,Frontend
+in the dialog close contract for icon display still wrong and the placement of the X icon is still not to the right,Frontend
+Icon in the dialog  Reason of Deactivation displaying is wrong ,Frontend
+dialog close currect contract incossitent  when I login as academic director(displays a large dialog when I login as ADMTC Director),Frontend
+"When I Quick Search last name student, email student in click search student and email , student not found condition login as Certifier Admin but in student name of student display |",Frontend
+"when i want Edit refund, dialog Edit Refund Field Form Not populate on field ""From"", ""Date"" , ""method of payment"". w",Frontend
+"when i want delete refund, it throw error:",Frontend
+when i want delete manual OD cash transfer. spinner always displays. w,Frontend
+"As Finance Member (Mrs Ekaterina SOROKOPOUD), there is no Menu Finance -> Master Table Transaction",Frontend
+Icon Euro And Note Still Displayed when the flux is billing,Frontend
+"The student balance table shows a non-zero and non-green balance, despite only validating the modality in student form filling. Check the balance in 1 term, 3 terms, and 8 terms.",Frontend
+Missing localization on this swal for IBAN outside Europe and it moved to next step then display that SWAL,Frontend
+Euro Icon is displayed for manual payment. It should be only displayed for Online payment for the Euro Icon,Frontend
+"the Status column for line OD Student Balance Adjustment is empty. Based on checklist it should be  populate with ""blue dot""",Frontend
+"The operation name only displays ""Billing of Term"" instead of ""Billing of Term <Number of terms>"". Check example format: Billing of term 2/8 - 22/02/2023 or Billing of term 2. Test data: A10741 Mrs Amelie AUGIS.",Frontend
+"There is a TypeError when sorting the legal entity column in the master table transaction. The error message is ""TypeError: Cannot read properties of null (reading 'includes') Please Alert The Administration"". The response is available when checking the network.",Frontend
+When i click Note Button in Action column the dialog title in english is correct but im not sure in french because it's just change the order of sentences.,Frontend
+I check value in Operation Name column and I see Payment of Down Payment instead of Down Payment  | Sheet,Frontend
+"Data of Payer name is not consistent, is not like Student Name and Actor Name ",Frontend
+"I check student balance after remove term 3,  the dot status term, payment date and balance date is not match",Frontend
+The validation for displaying the financement and contract tab needs to be updated to check the type of formation instead of the admission form. The tab should be displayed when the type of formation is FC.,Frontend
+"After i assign template for organization the term will display on term column but, the first term displayed with red dot",Frontend
+"To pay down payment using credit in student balance, go to finance tab and check ""status term"" data for down payment.",Frontend
+"To redirect financement_n1 notification from mailbox to student card, but redirected to a different student, as continuous formation manager, check the recipient's Manager attribute in Active Directory",Frontend
+Student pays full rate discount of 100% for case FI with DP as additional cost. Student tries to pay DP on form but Down Payment amount is $1000 despite additional cost being $260.,Frontend
+"after I pay DP for student, I cannot Transfer the student from FC program to other FC program.",Frontend
+"Operation Name: Term number on Billing of term 1 is not displayed, it only displayed ""Billing of term"".  It should be ""Billing of term 1""",Frontend
+terms display red dot when the month term has passed,Frontend
+Column program on table master transaction doesn't show the scholar season,Frontend
+"Amelie AUGIS paid the down payment using SEPA, but the swal BRAVO did not display and the form was empty when she went back to the step down payment.",Frontend
+"In popup add billing, I see the field note has mandatory sign (*), but I can validate the data without fill the note",Frontend
+"After editing the term in the Master Transaction Table as FI Readmission, a payment line was cancelled and the source column still used hardcode master_transaction.term_cancelled in the sub menu Master Transaction Table. The student number is A09563 [ERP_007].",Frontend
+I see the Date and Time at the Master table for Flux : Billing is not display the 'Date when it's added' but displaying the 'Due Date'  | table structure,Frontend
+The date form control is not populated when editing first time but populated when editing the second time -,Frontend
+"Operation name automatically generated as ""Payment of term <last index + 1>"" when adding manual payment",Frontend
+Confirm button does not directly show the timer on SWAL Confirm Remove Manual Payment and the text with timer is different than the text without timer,Frontend
+After I click  in PAY_N2 I directly to payment term form and it didn't display the term table,Frontend
+Error deleting regulation payment on student card. SWAL: Server error. Check connection or re-login.,Frontend
+"When adding payment from finance follow up student, the DP status is still blue instead of orange (pending)",Frontend
+The finance follow up student has an incorrect column localization for the Account number column. It should be EN Student number FR Numéro apprenant,Frontend
+"To update the SWAL on the Add avoir/discount pop-up, use the information modal type and display the text ""Sorry""",Frontend
+"After transferring a student and checking the operation lines, there is a payer for the student, which should not be the case since the student balance does not have a payer",Frontend
+"1/ Payment form issue: Student/FS with chargeback or partially chargeback cannot pay Total Amount Remaining or less due to warning message.
+2/ Finance status table displays incorrect status for term to student card and payment form.",Frontend
+After i add manual action avoir the time column displays different  | Student Card,Frontend
+"Translation of manual action Avoir scholarship fees <student program> is incorrect on table operation line, master transaction, student balance.",Frontend
+"When transferring a student to another program, the student balance still shows avoir down payment and terms even if the student has made payments. To verify, check the operation lines, student balance, and master transaction table.",Frontend
+"When clicking from email FINACEMENT_N1, it should open the current program of the student on the tab financement, not the old one.",Frontend
+"When trying to remove payment data lines, a pop-up dialog appears to confirm deletion, but the name of the payment line to be deleted is incorrect. ",Frontend
+"when i add refund from manual action, it dispaly remove payment. then i try to click remove payement display swal error",Frontend
+"Issue with refund line: 1) Refund icon not displaying in action column, 2) Error message ""Cannot read property 'billing_id' of null"" when trying to remove refund line.",Frontend
+"when i want export Unbalanced Balance, it display about about export ""Generate the csv export SAGE""",Frontend
+"Issue: When adding OD Student Balance for a student in FR localization, the commentaries still display in EN text. Expectation: format should be respected.",Frontend
+Avoir generates wrong comment format and localization. Need new format and correct localization.,Frontend
+Billing generates wrong comment format and localization. Need new format and correct localization.,Frontend
+"When adding manual payment line, generate correct format of commentaries and localization.",Frontend
+Generate correct format of commentaries and localization for manual refund action.,Frontend
+Generate correct format of commentaries and localization for manual OD action.,Frontend
+"After triggering a chargeback, there are two dots displayed in the finance follow-up student. It should display one icon button to trigger a pop-up of the down payment detail.",Frontend
+Change payment form UI to display remaining amount when partially paid and update color for Partial status to yellow (#ffd740).,Frontend
+"I check in the Student Balance the Overpaid line have remove button, but when I click it, it not triggering anything.",Frontend
+"When I trigger chargeback for DP, I see duplicate Down Payment lines in the student balance, indicated by the eye icon. It should populate the Regulation of Down Payment in the first line. Note: This also occurs in student FC Partial.",Frontend
+"After completing Down Payment with Manual Payment, attempting to remove it shows incorrect Operation Name in confirmation SWAL, also in FR localization.",Frontend
+"When removing the Down Payment line in Student Balance, the Bravo SWAL is displayed after confirming the Remove action. However, the Down Payment line status remains 'Paid' in Finance Status, Student Balance, Follow Up Student, and Follow Up FI.",Frontend
+"
+When a user adds a Manual Discount line for an existing student (FC) in the platform and selects the payer as ""FINANCEMENT (organization),"" the commentary incorrectly displays ""Avoir"" instead of ""Discount.""",Frontend
+[Existing Data] Commentaries not remove when I remove manual payment of FC Student,Frontend
+"Existing data After I add OD Student Blaance, I noticed on the Master Transaction table -> Column Flux, there is no dropdown option: OD :",Frontend
+"After transferring the student for the 2nd time, I completed the registration form and paid the Down Payment. The 'Not Exported' line in the Student Balance table had the 'Accounting Document' column populated with a number even though I had not used the Export SAGE action. This also happened when I completed the Term Payment.",Frontend
+ Data on column legal entity should display for all the lines,Frontend
+"the pop up that relate to the finance should be Draggable, now if check the pop up are not draggable",Frontend
+I see the full rate is not display correct amount to student card,Frontend
+"When I add Manual Action Discount, the Total Amount of Credit doesn't increase and the balance remains unbalanced. After deleting the Manual Action Discount, the Amount increases, which shouldn't happen. ",Frontend
+"When DP gets a chargeback, students receive notification FC_FORM_N4 and are redirected to the ""thank you"" step in READ_REG_N1. To access the DP step, click the step contract.",Frontend
+"After paying the DP, I checked the Follow Up Student table and saw that the Deposit column only displayed the status of the Down Payment, not the amount. The same issue occurred for another student, but this time it only displayed the 'Generate' status (not with the amount). ",Frontend
+Notification Management shows incorrect data for 'Unbalanced_Balance_N1': - Recipient field displays 'Candidate' instead of 'Student' - In CC field displays 'No CC' instead of 'Financial Support' - Triggered field displays 'Unbalanced_Balance_N1' instead of 'Immediately'. Note: FR localization is also incorrect for these fields.,Frontend
+"After clicking Validate button for Manual Action Billing, Bravo SWAL is displayed but no new Billing line is shown at Student Balance, Operation Lines, and Master Table. Commentaries also show that the comment for Manual Action Billing didn't generate.",Frontend
+"After clicking 'Send school contract amendment', EN localization displays incorrect text. It should show the agreement of school contract for the student's name.",Frontend
+"In Notification Management, Unbalance_Account_N1 has incorrect formatting in EN and FR languages. Recipient and CC fields are wrong and Triggered should be immediate.",Frontend
+"Pop up add billing not draggable, need to make it consistent with another pop up",Frontend
+Add param lang in the query Send School Contract Amendment,Frontend
+"On step 3 of the form, after adding the payer and clicking validate, there is a few seconds delay before the step message displays. Without a spinner, it appears as if nothing has happened. If the user clicks validate again, the finance generated multiple times and becomes messed up.",Frontend
+School contract amendment not align properly in student card - tab student,Frontend
+"Add ""Full rate: <Full rate amount based on internal/external>"" to ""Registration EFALIL 1 Communication"" for EDH finance member's easy reference when adding manual billing for transferred students.",Frontend
+"I see the action button is not displayed for partially paid payment line, it should display ""note"" icon button  to student card",Frontend
+New data shows double status displayed in Readmission > Follow Up table after changing student status from Registered to Postpone Registration. It should only display one status.,Frontend
+"When adding avoir, OD, refund etc... -> The field ""Note"" shouldn't be mandatory",Frontend
+"When i search student Julia, it show quick search list, i click connect as student but it shows swal : student not registered yet",Frontend
+After filter in Notif. Ref column the result that I filter show different result in the breadcrumb. And there so many option have to check manually.,Frontend
+When I try filter not paid and  not billed  the breadcrumb is displayed but the data not show,Frontend
+"When I filter tag using Tag super filter, the breadcrumb is does not show after filtering the tag.",Frontend
+"When I try filter the status column, the breadcrumb show the undefined, not what I choose in the column.",Frontend
+"When filtering Status column, dropdown list name not displayed but checkbox selection shows breadcrumbs in Table Filter.",Frontend
+as Operator Director when i use table filter at column status the breadcrumb cant display,Frontend
+as Operator Director when i use filter table at column first value is corect but second value is invalid for filter,Frontend
+as Operator Director the filter cannt work corectly and at column Program breadcrumb cant displayed   2,Frontend
+"Improvement   When check on [FR] the text ""Please select a scholar season"" it's not align with the dropdown because the [FR] text is to long",Frontend
+I see the filter for Group is not working,Frontend
+"As Academic director, I can see the trombinoscope from other Program that not related with me",Frontend
+"I see the student did not have School email but in Trombinoscope it display Personal Email instead of ""-""",Frontend
+"Improvement:  If Student school email is empty then do not display button ""Send Email"" button",Frontend
+"I see the tooltip for button ""send an email"" it's in correct, it should be ""Send email"" but on the env it only display ""Send""",Frontend
+"When User type operator access the dashboard or student > Trombinoscope , the filter is not ""Pre select"" with ALL just like in Admission > General",Frontend
+"When user type other than operator acces the dashboard or Student > Trombinoscope, the filter is not preselected with user program  Question 9",Frontend
+"When user select category of user, the UI of selected user type is incorrect",Frontend
+"In the PDF trombinoscope pop up, there are no option ""ALL"" for field Group",Frontend
+Improvement :  Make all field in the PDF trombinoscope pop up to become mandatory field,Frontend
+"User type other than operator, when check on the filter, the campus and level is not related to the user program",Frontend
+The student card and trombinoscope isn't same after i updated data on student card,Frontend
+I can't download PDF with sortings: By Alpha Order,Frontend
+There is no photo profile display in the trombinoscope even though it display in the Student Card,Frontend
+Improvement: Add check box for option in the Trombinoscope filter,Frontend
+"the field under the filled field should give ""All <field>"" value as pre-selected",Frontend
+There's message [Object object] instead of school name after i validated PDF form,Frontend
+The field of PDF pop up have some field which the placeholder isn't able displayed as the dropdown data,Frontend
+"I see the dropdown icon in the section ""define your selection"" is moving when user scroll the page",Frontend
+"Improvement :  when user do the filter in the section ""Define your selection"" call query after user click outside or focus out on the dropdown selection",Frontend
+"Error on the writing of"" valider"" instead ""validér"" ",Frontend
+Button show up in student -> trombinoscope,Frontend
+"In PDF popup, field Group, for option All classes is missing FR: [FR] Toutes les classes",Frontend
+Numbers of student in trombinosope differs from number of student in student table,Frontend
+"Filter in the ""Template type"" column is randomly sorted in EN and FR",Frontend
+the date filter on the list of form templates table is not working properly,Frontend
+"In summary step ->  step type is step with summary, user isn't be able see the preview of righ bottom screen like other step",Frontend
+Thre's no space between button in step message and notification,Frontend
+Admission tabs in school intake channel The level of school isn't sorted properly,Frontend
+"When I turn on validator slider in the summary step then select validator it will display bravo, but validator field become red and empty,",Frontend
+Sweet alert incorrect if the user send reminder to student,Frontend
+The category user field cant choice more than one option,Frontend
+Improvement Remove  sub module button and remove item button must have tooltip in both EN or FR,Frontend
+Thre's swal error when user need upload a document PDF for contract signing PDF,Frontend
+"When template name already exist, swal displaying is wrong",Frontend
+Template type column dropdown template type in search bar double,Frontend
+There is a null null display in the Step with Final Message preview in default,Frontend
+"For some student that receive the OneTimeForm_N1 and click the  for form filling, they cannot see accept button to continue to next step",Frontend
+"i see 2 issue in :  1. student menu -> irregular position when table i scroll to right 2, form builder -> localization tooltip [FR] duplicate template",Frontend
+"As operator Admin, i already create form follow up with category of user operator admin. but i dont see the tutorial button on form follow up",Frontend
+"In the add inapp tutorial, on the module field there is no form follow up submenu to pick",Frontend
+"when student complete all step, i see button send reminder in action column",Frontend
+in the student table there are student have entity ' candidate ' So the user after send the one time form cannot complete the form,Frontend
+"InApp tutorial for form follow up submenu general is not there, but i can see the InApp tutorial is in admission >> general",Frontend
+One time form filling with document expected have red text after submit and validated,Frontend
+Send reminder button should be owned by students who have not completed the form filling only,Frontend
+"When select the form to send in dialog ""Send one time form"" the name of the form is not displayed (Field stay empty)",Frontend
+When I try to export data of student in french version I can see that the SWAL export after I choose a type of file isn’t showing properly.,Frontend
+The table did not directly query the data after opened,Frontend
+"When I filter for awaiting contract/agreement on status colum, there no data populated inside the status column",Frontend
+"Error in dropdown when i'm in french it's written ""create a tag"" it should be [FR] Créer un tag",Frontend
+Card tag is not good when text is too long,Frontend
+"The text in the field should be ""Select a tag"" by default in the add tag pop up",Frontend
+List of tags didn't alphabetical order,Frontend
+The icon inside the sweet alert for adding existing tag is not according,Frontend
+"The option for ""All"" is on freeze inside the drop down of remove tag dialog",Frontend
+User still cant input random country in special form,Frontend
+Case for FS that already paid for term 1 >> When Automatic Debit triggered the status on Term 2 still have Blue dot Icon,Frontend
+Improvement on UI for admission form + form from script engaged/registered,Frontend
+"In step financial support, increaze size of text + amount ""Price of the studies: <amount>""",Frontend
+"Lozalization: Checkbox text "" I authorize ..."" has incorrect FR on the form from script, use same text as existing in the admission FI form.",Frontend
+"Update school contract preview + PDF with new fields of financial support -> Cost coverage, account holder name, IBAN, BIC, checkbox "" I authorize ...""",Frontend
+SWAL error when fill post code with country filled in modality step on admission FI,Frontend
+still can fill with free text on date of birth field on identity step in readmission fc,Frontend
+Financement showing student name instead of organization name. can check from this student,Frontend
+SEPA Payment Mode:  After Click pay button the SWAL bravo displayed but then the UI is spining more than 1 minutes,Frontend
+Improvement: Update swal when asking for payment to show payer total & text instead of students,Frontend
+Student Pay 0% and Financial Support 1 Pay 100% - When split billing for FS and Student I notice that splited billing is not in the correct ammount,Frontend
+In the form filling step financement there is error graphql display,Frontend
+Button information for payment is wrong,Frontend
+Final step is not accepted after finish step DP for readmission FI,Frontend
+Split billing for financement is not displayed in the finance follow up tabel and student card finance,Frontend
+ there is an error in placing the box field for filling in 'financial support cost coverage amount',Frontend
+Tooltip in the column student name [EN] and [FR] not accurate,Frontend
+Form filling in modality step i cannot go to the next step because swal desole always appear,Frontend
+there is no X button in the section student and section financial suport,Frontend
+"After I set contact as Financial support, I did not see the financial support name in the Payment Information UI",Frontend
+in FC partiel form filling - step modality payment the header isn't displayed,Frontend
+When Operator Admin add FInancial Support for Student from Student card > Contact and click save button It throw swall error. Cannot continue the flow,Frontend
+"In the Finace History, the term paid by Financial support the From name is still in student name, not Financial support name",Frontend
+"The cost coverage amount cant receive my inputted before, and then error message appeared for me. Watch my  explanation to jira",Frontend
+"As Financial support when I in the term payment UI, I see the total amount remaining is 0",Frontend
+The cost coverage amount isnt changed to FR language,Frontend
+after redirect to payment form (redirected from  on PAY_N2) i can see in list of Payment Method there is text acompte/deposit,Frontend
+"i fill amount data use ',' or coma, and i click credit card, isee swal error",Frontend
+the tooltip for FS in the transaction column for EUR does not match the EUR in the Credit column,Frontend
+There is additional character in SWAL ASKING_PAYMENT_S1 when check on [FR],Frontend
+Chargeback occur when the status of the Terms payment still in PENDING  There is two dot billed and pending on the colum term on student row,Frontend
+Add new contact  Toogle to set financial supporter localization in FR is not what is on the checklist,Frontend
+"There is delay for ""Price of the studies"" field, at first it display 0 but after user re access the form it will display the correct amount",Frontend
+"I tried to fill the amout exceeding the total amount, but no error message appears",Frontend
+The contact of student cant be saved if i filled out the form contacct,Frontend
+"When I duplicate form builder there is not spinner, so I can click button save more than one",Frontend
+"When I try to edit form builder step, save button is not active so I can't save the from that I edit",Frontend
+there is no X button in the section student and section financial support,Frontend
+click asking for payment and i see text [FR] different Sweet alert,Frontend
+localization date column and time column,Frontend
+no dropdown select No Modality Payment in payment information column,Frontend
+Localization [FR] Prise en charge,Frontend
+"After assign student to readmission,  I see there is duplicate student card",Frontend
+the title of contact in the contact sub tab  [EN]User to contact in case of emergency [FR]Personne à contacter en cas d’urgence,Frontend
+no swal display when assign program with financial situation red,Frontend
+"I can't see field Nationality 1 , only see Nationality",Frontend
+"Readmission - follow up : When i go to next page in table, the horizontal scroll become broken",Frontend
+need to Remove column status on table readmission - Assignment,Frontend
+Emergency contact telephone field stays red even when populated.,Frontend
+So cannot validate to go to next step because the field stay considered as not filled up,Frontend
+"Student have 2 status on 1 program, example: A19101 Mrs Melissandre AFONSO",Frontend
+All the commentaries are gone on POC Example: A21616 Mme Rozenn ABEGG ,Frontend
+"in the admission menu -> follow up fc submenu  select 1 student and transfer program, I see the validation and cancel buttons are irregular",Frontend
+section of the form filling step identity  when my screen is divided into 2 then the screen display in step identity becomes irregular,Frontend
+after transfer program and i check  on the finance tab  there is text 'no data to show' . should be there is no text 'no data to show',Frontend
+ ,Frontend
+"When I click on ""Validate"" button on Transfer pop up, there is no spinner displayed while waiting the process",Frontend
+go to readmission-> follow up  type of formation : FI status : engaged dp : not paid  click transfer program and i cant see dropdown in the field school,Frontend
+"In finance > follow up student, the payment method and financement support  is empty value, but in expected result the value is X",Frontend
+The data between PDF registration form and student card identity isn't accurate,Frontend
+"The downpayment value on financement is empty, even though if i read my checklist have expected result in the downpayment is X value",Frontend
+"[READMISSION][FI TO FI]  date of birth in the Step Identity, contract sign and student card not acurate",Frontend
+orm filling the step school contract there is no red text that is 'Please check this box which is valid for signing the school contract' on signature,Frontend
+After transfer student and chekc on the student card tab Finance on the new program  The spinner spinning all time in the Finance status,Frontend
+Admission form Financement Pop up for Add financement of student is wrong. now student can add the amount and accept the financement himself,Frontend
+"when i validate step 7 and redirect last step (mercy), in the last step page automaticly reload",Frontend
+"The tooltip of send email button should be ""send an email""",Frontend
+data in step School Contract and My Identity not acurate,Frontend
+"Admission form after Transfer On step Summary, I see the student Date of birth displayed as ""Invalid date""",Frontend
+"Student card missing, no action button, not assigned to new program. Codefix 1: access student card for ""Postpone Registration"" status. Codefix 2: display button in Action column for ""Postpone Registration"" status.",Frontend
+Create new user only with EDH domain email. Check current user data in EDH Platform to verify email domain.,Frontend
+"The Type of Formation, Student Number, and Name columns in the Table Follow up don't freeze when scrolling left and right on the Readmission → Follow up sub-menu.",Frontend
+"Add ""Hide"" and ""Expand"" buttons above the student/user/company card list. Clicking ""Hide"" will hide the list, and clicking ""Expand"" will display it again.",Frontend
+"Issue with student M. Baptiste FOURSY's identity verification. Happens when clicking directly in email client, but not when clicking the notif in the mailbox on the platform.",Frontend
+"Before validation, students can view the Grand Oral PDF result in the My File sub-menu Certification of the Student UI.",Frontend
+Can't access Jobdesc_N10 link on mobile for incomplete Job Description before admission. - Student: M. Mamadou DIONE,Frontend
+"Employability survey: make it possible after template is used , user still can edit the notification, Notif only",Frontend
+All document expected uploaded from a task with doc expected from task manager should be displayed by school in the acad kit 07,Frontend
+"After sending one-time ES in Active Student Table, the selected template is not displayed in Employability Survey Parameters.",Backend
+Stop ESurvey_N1 notification as it no longer exists in the notification document.,Backend
+Keys are not translated in student header/direction form filling.,Backend
+"After clicking the ""Send to student"" button, the student is not displayed on the ES Result table.",Backend
+Notification History for ESurvey_N3A has no title and school in the notification history.,Backend
+"When filtering by RETAKE and INITIAL options, no data is displayed in the Final Transcript Result column, despite having one student set as Retake and many students in Initial status. Test Data: MA 2022.",Backend
+"When sorting data on the status column, a GraphQL error is displayed. ",Backend
+"When accessing the form through the notification, the user and user type ID of ADMTC Director are still present, causing the button to not be displayed when the student accesses it.",Backend
+"After submitting the Employability Survey, it was sent to every student, even those who did not have a decision yet, and it was sent directly, despite the condition of 1 day after decision PASS",Backend
+The student did not receive the task to complete the Continuous Employability Survey.,Backend
+"The student receives multiple notifications of UserForm_N7 after completing the form, even though the validator has not yet validated the form.",Backend
+"When the student tries to complete the revision, there is an error ""Cannot read property 'step_status' of undefined.""",Backend
+The filter and sorting in the status column of the table is not working yet.,Backend
+"When filtering the Employability Survey status column by ""Not Sent"" in the Step 2: Employability Survey Result for continuous Employability Survey, the number of students in the pagination is not correct. It is filtered, but on page 1, only 9 students are displayed when the maximum number of students on 1 page is 10.",Backend
+"When filtering the Employability Survey status column by ""Not Sent"" in the Step 2: Employability Survey Result for one-time Employability Survey , the table is not filtered, and it shows no data.",Backend
+"To validate the final step, the notification from the form builder will not be used, and the old flow using the cronjob will be followed. Please note that the user needs to set up the validation type as final validation. If the validation type is step validation, the notification from each step/UserForm_N5 will be used.",Backend
+"If the user sets a custom notification in the form builder, please use that notification. If not, use the default notification.",Backend
+"When validating the form, there should be no default notification. If the user decides to add a notification in the step, then it will be sent. If not, there is no need to send the default notification.",Backend
+"In the Step 1: Employability Survey Parameter for Continuous Employability Survey , there is no radio button for Relative Date and Exact Date. A workaround is to use the 'Save' button instead. ",Backend
+"When clicking the ""Send to Student"" button for the ES in MA 2022 ROCKET, the status remains not published. ",Backend
+"When the user clicks on the Reminder button, it currently sends ESurvey_N4. The expectation is to:
+1. Send ESNFStudRemind_N1 if there is no ""Reminder"" notification from the form builder.
+2. Send the notification reminder for the step that the student needs to do if there is a notification ""Reminder"" set in the form builder.",Backend
+The task is not marked as done even though the student has completed the form for Employability Survey,Backend
+"When the validator rejects the ES, it still sends UserForm_N1. It should send ESurvey_N6 for Employability Survey.",Backend
+"Despite rejecting the Employability Survey , the status in the Employability Survey Result table still displays as completed by the student.",Backend
+The keys are not populated in the Step Summary on the Footer and Final Message to form.,Backend
+"There is an error when exporting Employability Survey Result from the backend that says ""Cannot read properties of undefined (reading 'student_responses').""",Backend
+The task for revision is not displayed for the student because there is no due date.,Backend
+"There is a GraphQL error when trying to reject the ES of the student, which says ""updatedFormProcess is not defined.""",Backend
+"When the form template has a custom notification, it still sends ESurvey_N6 instead of taking the custom notification.",Backend
+"The ES Name field in Step 1 of ES Parameter can still be filled with an existing name, causing an issue with the task for revision.",Backend
+"The task table for ""Validate Employability Survey"" does not have a due date.",Backend
+"When the user selects the option to complete the form, it is not marked as done.",Backend
+"Clicking on the ESurvey_N5 notification redirects to the form, but the user ID still uses the student ID instead of the final validator ID.",Backend
+"After the student completes the first Employability Survey  and the date for sending the second Employability Survey has passed, the second ES is not sent to the student.",Backend
+"The List of Employability Survey table cannot filter on the selected column template, as the dropdown list still takes from the list of questionnaire tools.",Backend
+"The user's position under signatory is displayed as ""null"" when the position field is not filled, but it should be left empty for the ESNFStudRemind_N1 notification reminder.",Backend
+The ESNFStudRemind_N1 notification reminder should redirect directly to the Employability Survey form instead of the student UI.,Backend
+"If user uses key Step Title with apostrophe, display as is on notification.",Backend
+"Key {{form_template_name}} not populating form template name, only step title.",Backend
+"Add keys for Civ Academic director, Academic director first name, and Academic director last name.",Backend
+"For Employability Survey templates, skip validation for Final Step. When student completes step until Final Message, ES status is automatically validated and task is marked as Done.",Backend
+Add answer type Continous study to form builder,Backend
+"Key for URL in custom notification not in FR. Change to ""Cliquer ici""",Backend
+The Employability survey name is not unique for Continuous ES. A new ES template can be created with the same name as an existing one in the List of ES table,Backend
+"As an ADMTC Admin, multiple Employability Survey with the same title and class can be created for type Continuous",Backend
+The notification content in EN is different from the notification document for Reminder 10 days.,Backend
+"Users can click ""Sent to Student"" multiple times in Continuous Employability Survey and they will get multiple tasks and notifications for the same Employability Survey process.",Backend
+"When an ES Template is already published and sent to students, the form template used in the ES Template cannot be unpublished on the form builder. An error will be returned when the mutation to unpublish is called but the template is used for a published form",Backend
+"When a user duplicates a form template in the form builder, the notification and message are not duplicated in the duplicated template",Backend
+Survey Name and Template Name columns cannot be searched without accent and typing a slice (/) in the Survey Name column deletes the data in the search field,Backend
+"After rejecting the step as a validator, the Employability Survey status and Employability Survey status card show ""Completed by Student"" instead of ""Rejected by Validator""",Backend
+"In One Time Employability Survey , students receive the Employability Survey when the send date is still in the future
+",Backend
+"In One Time Employability Survey , students receive the ES, but in Employability Survey Parameter student table, said student still can be excluded. If a student already received Employability Survey, they cannot be excluded anymore",Backend
+"In One Time Employability Survey , when a user clicks toggle include in Step 1: Employability Survey Parameter's student table, the sorting is removed and included students are moved to the upper row of the student table",Backend
+"In One Time Employability Survey, a filter for the Included column can be added with options such as ""All,"" ""Sent to student,"" ""Included,"" and ""Excluded."" Sorting options can also be added for ""Included,"" ""Not Included,"" and ""Sent to Student""",Backend
+"In the create Employability Survey pop-up, the RNCP Title field should only show RNCP Titles that have students in the dropdown",Backend
+"In One Time Employability Survey , only student data that is included in Step 1 Employability Survey parameter should be displayed in the Step 2 ES result table",Backend
+The Notification ESurvery_N3A needs to be updated to follow a different notif doc. The update should ensure that the RNCP Title field only shows RNCP Titles that have students in the dropdown,Backend
+"ADMTC Admin can reject the final step in a form even though the validator is Academic Director
+",Backend
+"The Employability Survey table's Status column does not have the option ""Not sent,"" and it needs to be included in the status filter",Backend
+"To sort the Final Transcript Status column in the student table, the correct order should be:
+- Ascending: Eliminated > Failed > Initial > Passed > Re-take
+- Descending: Re-take > Passed > Initial > Failed > Eliminated",Backend
+"The sorting data for the Status, Final Transcript, and Included Result columns is not working properly. The issue may be due to leading spaces or mixed data, and filters may need to be removed and sorting corrected
+",Backend
+"The Employability Survey status is not displayed for students with a suspended status in the student card or school student card. The status column is blank, and the issue may be due to the student's suspension status",Backend
+"The sorting for the Status column in the Employability Survey table's Include column is not working correctly. The issue may be due to leading spaces or mixed data, and filters may need to be removed and sorting corrected",Backend
+The sorting for the Template Selected column in the Employability Survey table is not working properly. ,Backend
+"In One Time Employability Survey, students did not receive the ESurvey_N3A notification even though it appeared in the notification history. The issue may be due to the future send date or a manual trigger, and the notification preferences and concluded enrollments should be checked.",Backend
+One time Employability Survey & Continuous as validator I did not received notification and task to validate the Employability Survey (per step and in final step),Backend
+"When using One Time Employability Survey , if the validator rejects a step, the task for completing the ES may be counted as completed for the student, even though it should still be pending.",Backend
+"When using Continuous, after setting the parameter and clicking on send Employability Survey  (asking BE to trigger manually), the ES may not be sent after some time, blocking testers from testing. ",Backend
+"The status for Employability Survey  2 and Employability Survey 3 is not updated in Step 2 of the Employability Survey table, even though the student received the notification in their mailbox.",Backend
+The arrangement of the Employability Survey Result table is not correct. ,Backend
+"As a validator, notifications for validating steps in the Employability Survey are not visible in the mailbox, and the search bar in the description column of the Task Table is not working.",Backend
+"To change the Export Sweet Alert in Step 2 of the Employability Survey Result table to export the file as CSV and send it to the user via email, relevant modules should be checked and the CSV file format should be configured. T",Backend
+"The subject for DEROGATION_N1 is ""derogation_dispense S-CCAPF - 2023 TMK - TMK"". No specific reference was found to address this issue",Backend
+The form inside DEROGATION_N1 does not contain userId and userTypeId.,Backend
+"UserForm_N6 was sent to the certifier admin to validate the derogation/dispense form, but the text inside is about ""Dossier qualité"". ",Backend
+"After asking for revision, a SWAL error is displayed. ",Backend
+"When validating the Ask a form derogation/dispense, the line is displayed but the reference is not.",Backend
+"The footer of Notification DEROGATION_N1 only displays <CertifierAdminCivility> for <CertifierAdminFirstName> <CertifierAdminLastName>, and the latter is not shown. ",Backend
+"In the dynamic text of the email body, <School> is not displayed and instead ""-MA - 4 BLOCS - 2023 PIGIER -"" is shown. ",Backend
+"To change the notification <to form> in Derogation_N1 from being displayed to ""Cliquez ici"", formatting changes need to be made. ",Backend
+Task : Derogation/Dispense Form to Revision : <Reference> Reference is not displayed and also the from is from M.ADMTC. should be certifier admin,Backend
+"The column ""from"" on the menu task ""My Task"" is empty and should be populated with certifier admin.",Backend
+"To revise the derogation/dispense form, Academic Director updated the step document expected by uploading a new document and clicked save. However, the button for completing the revision disappeared from the step summary (step that needs to be validated). The task for Academic Director still needs to be done, and there are no tasks or notifications for the certifier admin.",Backend
+"After the certifier admin validates the form, the button for the PDF document is not displayed in the table of derogation/dispense.",Backend
+"The filter and sorting of the ""status"" column in the derogation/dispense table is not functioning properly.",Backend
+"After academic director revises the form and the Certifier Admin validates it, the column description in the menu task > my task displays ""Derogation/Dispense Form to Final Validate: <Reference>"" instead of ""Derogation/Dispense Form to Validate: <Reference>",Backend
+The reference filter in the derogation submenu does not allow free typing and the table does not populate with what is typed in the filter.,Backend
+"On the form filling, there are ""title_short"" and ""title_long"" fields, but they are displayed as ""{{title_short}} : {{title_long}}"". ",Backend
+"On the email notification DEROGATION_N1, the dynamic text of <Form name> is not being populated.",Backend
+"As Certifier Admin, after doing rejection for the form, there is no notification sent to the recipient",Backend
+"After doing rejection for the form, there is still a folder for the derogation form in ACADKIT. The folder for derogation forms that have been rejected should not exist. ",Backend
+"After rejecting the derogation/dispense form, the task of derogation/dispense is still ""to do"" for the Certifier Admin. The task for derogation/dispense after the form gets rejected should be marked as ""done"" (Note: For this case, only the rejected form's status will be ""done"").",Backend
+"When clicking on PDF SummaryD-00002 in ACAD Kit, the displayed PDF summary does not match the form filling for Derogation/Dispense. ",Backend
+The value of the key ${URL} in the notification does not match their environment,Backend
+The value of the key ${URL} in the notification does not match their environment and there is no encapsulation,Backend
+The key ${legalEntityIBANBICForTransferMethod} is not present on the notification table key description for FORM_N2.,Backend
+"After changing the status from ""register"" to ""postpone register"" on studentCard_N1, some keys (K004) such as StudentCivility, StudentFirstName, StudentLastName, StudentSchool, StudentSector, StudentSpecialty, and StudentLevel are not being populated in the notification for studentCard_N1. All keys (K005) on studentCard_N1 need to be removed.",Backend
+All keys on K005 in the notification for ALUMNI_N1 are not recorded in the table,Backend
+"After sending a reminder for a one-time form, the notification for OneTimeForm_N3 can be obtained. ",Backend
+"When trying to sign the contract, the user is redirected to the home page instead of the DocuSign page. ",Backend
+key userWhoRecieveUsertype not populate any data,Backend
+for notification FORM_N3 key URL doesnt recorded in the table,Backend
+I can not get notif intercont_n2 after complete step summary,Backend
+"when click button sign contract in step signing, I get swal error",Backend
+"key userWhoRecieveUsertype not populate in notif UserForm_N1,UserForm_N2,UserForm_N3 and UserForm_N5",Backend
+Notification RegUser_N1 doesnt have key for K001 and K002,Backend
+Notification EXPORT_N1 the key userWhoRecieveUsertype doesnt populate properly,Backend
+"After creating a new user, the notification RegUser_N1 is not sent.",Backend
+"Key signeeCivility,signeeFirstName and signeeLastName not populated",Backend
+"I see text undefined in notification PAY_N3, PAY_N6 and  PAY_N1 , even i'm not set any key or text for that notification",Backend
+There is several issue after Notification TRANSFER_N1 and TRANSFER_N3 got received,Backend
+Notification TRANSFER_N4 for key ${body} is not populated,Backend
+The user is unable to receive the notification for Contract_Conven_N1.,Backend
+The key 005 is not visible in the table for the notification StudentCard_N1.,Backend
+The environment is very slow when accessing the all menu.,Backend
+Notification FORM_N4 display key K003 in the table. should be there is no key K003 in the FORM_N4,Backend
+Notification Reg_N8 in the CkEditor display key ${studentCampusName},Backend
+"Notification StudentCard_N1 there is key ${candidateFirstName} , ${candidateLastName} , ${schoolName}, ${campusName}, ${sectorName}, ${specialityName}, ${candidateSchoolLogo}, ${devFirstName}, ${devLastName},${devEmail}, ${devPhone}, ${candidateSchool}, ${candidateCampus}, ${candidateSector}, ${candidateSpecialty} in the table. the table should only show K003 and K004",Backend
+The key ${userWhoRecieveUsertype} is not populating in the notification for FC_UserForm_N5. ,Backend
+The keys ${userWhoRecieveUsertype} and ${userWhoSendUsertype} are not populating in the notification for FC_UserForm_N2.,Backend
+The key ${userWhoRecieveUsertype} is not populating in the notification for FC_UserForm_N3.,Backend
+"For notifications FORM_N1 and FORM_N2, the key URL will redirect to an HTTP notification instead of pointing to the form.",Backend
+The key ${URL} in the notification for ALUMNI_N1 has an undefined userTypeId value.,Backend
+"The keys ${teacherCivility}, ${teacherFirstName}, and ${teacherLastName} in the notification for InterCont_N1 are populated with current user data instead of teacher data.",Backend
+"After creating a new user, some keys are not properly populated in the notification RegUser_N1.",Backend
+The key ${body} is still not properly populated in the table key for Notification Management. ,Backend
+The key K005 is not properly populated in the notifications TRANSFER_N1 and TRANSFER_N2.,Backend
+The descriptions for key ${delimiterType} in both EN and FR are inaccurate and still display the default key in the notifications IMPORT_COMP_N2 and IMPORT_N2.,Backend
+"The keys ${userWhoRecieveUsertype} and ${userWhoRecievePosition} are not properly populated in the notifications IMPORT_COMP_N1, IMPORT_COMP_N2, and IMPORT_N2.",Backend
+The key ${userWhoSendUsertype} is not properly populated in the notification IMPORT_N2. ,Backend
+The user is unable to receive the notification for UserForm_N4. ,Backend
+The description for key ${askForRevisionReason} in localization FR is empty for ADM_DOC_N2. ,Backend
+The key ${salulation} in the notification RegUser_N1 displays incorrect text and should be changed to ${salutation}. ,Backend
+There is no description in the key URL for notifications FC_UserForm_N2 and FC_UserForm_N3 in Notification Management. ,Backend
+The key ${userWhoRecieveUsertype} is not properly populated in the notification InterCont_N4.,Backend
+"The keys ${contractManagerEmail}, ${contractManagerCivility}, ${contractManagerFirstName}, ${contractManagerLastName}, and ${contractManagerPosition} are not properly populated in the notification InterCont_N2. ",Backend
+The key ${userWhoRecieveUsertype} is not properly populated in the notification OneTimeForm_N2A.,Backend
+"In the notification TRANSCRIPT_N2B, the To column in the Student Card is filled with the academic director name instead of the Student name.",Backend
+"The task is not sent when it has been submitted, and there is no task in the RNCP title and student card. ",Backend
+"After ADMTC Director removes CV and passport in the Acad Kit, there is a SWAL error displayed.",Backend
+"In the notification TRANSCRIPT_N2B, the value in the From field is coming from ADMTC Platform instead of Certifier Admin. ",Backend
+There is added text in the notification TRANSCRIPT_N2B that does not comply with the notification document,Backend
+"The file for student M. CHAUVIN Thibaut is not displaying in the academic kit, but it appears after changing the decision and retaking the grand oral.",Backend
+There is no Assign Grand Oral Corrector and mark entry for retake grand oral in the dropdown description column for the task. ,Backend
+[Block Competency button][comptency button] button +criteria evaluation inactive,Backend
+"When saving a specialization with the same name but a different class, a Swal warning is displayed.",Backend
+"The specialization can still be removed even after being connected to school, and this is related to the S-RM2C class ENC NANTES 2023.",Backend
+"When trying to connect a specialization that has the same name but is in a different class, a Swal error is displayed even though the RNCP title is already connected.",Backend
+The mentor did not receive a Jobdesc_N2 notification in their mailbox.,Backend
+The PDF document display is cut between pages when using the PDF button in the Job Description.,Backend
+The student is unable to download the PDF job description because the student UI only displays a spinner.,Backend
+"The student completed the task job description, but it is still pending.",Backend
+"As an academic director, I noticed that the HH:MM (time of upload) was not displayed in the Jobdesc_N4 notification, and the Mentor flow was disabled.",Backend
+"When the Mentor Flow is enabled, the task ""Complete Job Description"" remains in the pending task table even after the student has completed it. However, if the Mentor Flow is disabled, the student's task will be moved to completed.",Backend
+"When the Mentor Flow is enabled, the task ""Validate Job Description"" is not created for both the Mentor and the Academic Director, even after the student has completed the job description. However, if the Mentor Flow is disabled, the task ""Validate Job Description"" is created for the Academic Director.",Backend
+"student Mrs. Lamia ADJAL is exempted from bloc 1 & 2, but they are still included in the form filling of the job description.",Backend
+"The student selected the IoT specialization, but the form filling for the job description displays the Cloud Computing specialization.",Backend
+"missing deposit task due TODAY Friday 17 March.
+Please create this morning the deposit tasks for the AGENCY RECOMMENDATION test (Block 3 - CPEB 2023)",Backend
+"1/ Student kim sitbon displays 6 tasks admission form  that need to be validated (Title: CPEB; class: CPEB 2023)
+2/ for validating the student admission form Mara CAMARA when clicked it redirects to the final step (Title: CPEB; class: CPEB 2023)
+
+check as certifier admin Mme Caroline SABATE",Backend
+"Creation of task deposit doc expected for ""Agency Recommendation"" block 3 of CPEB 2023 for Yeouda GUEDJ Please create the task doc deposit expected for ""Agency recommendation"" block3 of CPEB 2023 for Yeouda GUEDJ",Backend
+"Employability Survey - Reminder + phoning
+RM2C CLASSE 2022 // EE 2 à 6 mois 
+Prio 1 // Reminder notifications + phoning surveys
+1. The same form was used on classes 2022, BBIM 22, BRDV 22, ISMAC 22 for the EE 2 at 6 months. 
+The first notification went out correctly on all classes. However, the dunning notifications were sent correctly on BBIM 22, BRDV 22, and ISMAC 22 classes but not on CLASS 22.
+2. The phoning notification was not sent on any of the classes",Backend
+STUD_N4 should not be sent to deactivated user,Backend
+Forced dispatch of notification NotifG_N002 employability survey. Force the sending of the following employability survey notifications (seen in the technical meeting):,Backend
+"DATAFIX - Employability Survey - Reminder + phoning
+RM2C CLASSE 2022 // EE 2 à 6 mois 
+Prio 1 // Reminder notifications + phoning surveys
+1. The same form was used on classes 2022, BBIM 22, BRDV 22, ISMAC 22 for the EE 2 at 6 months. 
+The first notification went out correctly on all classes. However, the dunning notifications were sent correctly on BBIM 22, BRDV 22, and ISMAC 22 classes but not on CLASS 22.
+2. The phoning notification was not sent on any of the classes",Backend
+"Creation of task deposit doc expected for ""Agency Recommendation"" block 3 of CPEB 2023 for student Nawel SNADJI (ISAL PARIS). Please create the task doc deposit expected for ""Agency recommendation"" block3 of CPEB 2023 for student",Backend
+"No task to validate the correction of the written BG and no ""validate correction"" button on the grid. this is for student in RDC 2023, school CFA La Seyne Sur Mer, task BG ECRIT, student Rudy Dolla",Backend
+"Student received notification ESNFStudRemind_N1 with wrong link, it linked to the previous ES that been done in July, need to check notif on the 23rd of March for student. Ex: M. Thomas SIMON, it happens when sending manual reminder, it sends the first one, not the second.",Backend
+Task for Validate Test is mark as done while the mark entry is not done,Backend
+"Delete task doc expected for ""Agency Recommendation"" block 3 of CPEB 2023",Backend
+"There is no Task Generated after publish test ""Contrôle de connaissance"" from Bloc 1
+Also the same for test ""Contrôle de connaissance"" from class 2023 TMK, it not yet published but there is no task generated on the preview",Backend
+"RDC 2023 / FORMAPLUS 97 / WRITTEN BG / No task to validate the correction (referent: Cynthia POLOR) No task to validate the correction of the written BG and no ""validate correction"" button on the grid. when check in the rncp title for the school FORMAPLUS 97 and check for subject ECRIT, there’s only one task for subject ECRIT",Backend
+create task dépot recommandation agence for 3 students of the STUDENCY school (block3 CPEB2023),Backend
+"Two identical tasks for one learner - TCHOUGA/STUDENCY/CPEB2023, Please delete one of the two",Backend
+"Need to remove ""Complete Admission Form"" task for LUCAS Bastien - Pigier Nimes MA 4BLOCS because his admission form already validated on 01 December 2021 - 12:19 (Paris Time) but on 22/03 that task to complete admission form has created again, also the student is transfer to new school but same rncp title, need to check why the student receive new task ""Complete admission form""",Backend
+The academic director receives notification and task to complete the quality file again even though they already did it in Quality Form. ,Backend
+The academic director receives notification and task to complete the quality file again even though they already did it in Quality Form. ,Backend
+Corrector M. Le Petit did not receive notification CORRECTOR_N1 for test data Sully Formation - CDRH 2023 - Grille SIRH Ecrit Collectif.,Backend
+"There is a typo in static text, not all users with wrong email status are included in the notification, and the reason for the wrong email is not displayed on the error message in WrgMail_N2A. ",Backend
+"User Pacalle Muller received notification STUD_N11 containing 8 students, but there are 13 task Validate Admission form. Some task Validate admission form is not marked as done after the validator performs the task. Another validator who received notif STUD_N11 also needs to be checked.",Backend
+User still receives notification Prob_N10 in mailbox tab CC despite recipient in CC being deactivated.,Backend
+Remove duplicate columns in Notif history table for title and school in STUD_N4. ,Backend
+Sort student list in table by last name in STUD_N4. ,Backend
+Remove duplicate task for upload document expected for test EDC Ecrit Group E. ,Backend
+Some correctors did not receive notification CORRECTOR_N1. ,Backend
+Corrector M. Le Petit did not receive notification CORRECTOR_N1. ,Backend
+Transfer tasks from Aubel Elsa to Clamaron Séverine to prevent deletion of Aubel Elsa from platform.,Backend
+Transfer responsibility of academic director to transform all tasks related to corrector. Example case: Aubel Elsa tasks not fully transferred to Clamaron Séverine.,Backend
+Customer needs help removing problematic tasks and changing activation date for MA - 6 Blocs class 2024 and 2024 Pigier.,Backend
+User received reminder despite submitting form,Backend
+"User received task to complete quality form, but on the notification TASK_N4, it is display task to complete admission form",Backend
+"TASK_N4, some of the task has duplicated task listed in the notification",Backend
+Task_N7: We need to update the full date format on TASK_N7 to follow the guideline for date,Backend
+"Job Descripstion for Student  Mrs Coline RAIMBAUD CDRH class 2023.
+The Jobdesc status already validated without signatory of by academic director and the task to validate the Jobdesc still TO DO
+Need to open the task Complete Jobdesc so student can modify and complete it",Backend
+"Deactivated and reactivated, some issue found:
+- The task 'Input the company and mentor and activate the contract' is not displayed on the pending task after the stduent reactivated 
+- The notification when Deactivate and reactivate the student is not sent to ADMTC Dir (Need confirmation for the notification)",Backend
+"WrgMail_N2B
+- No FR localization for the notification
+- Name format in the ""Name column"" is not respecting the notification document
+- Error message column displaying wrong value. it displaying the email of the user, instead of displaying the reason of the wrong email
+- Not all user/student who has status wrong email is included in the notif. I only receive 2 notif WrgMail_N2B containing 1 user and 2 student, meanwhile I check there are around 20 user who has status incorrect email, and 4 student with incorrect email",Backend
+Deletion of tasks not carried out on 2022 and earlier titles so the weekly reminders is still sent.,Backend
+User Mme Stéphanie PEYSSON received 2 notification WrgMail_N2B,Backend
+"Cert Rule for Preparration Centre:
+If the Title - Class Coneected to 3 different school and academic director, When One oif the academic director Accept the Cert Rule, the Document for another school is generated also",Backend
+"On the notification PUBLISHED_TEST_N1 there is typo, it should be Published test but on notification it's published test",Backend
+"Some task already completed and validated on June 2022:
+- Rapport d'Audit et recommandations en choix technologiques
+- Oral Audit et recommandations en choix technologiques
+- CC UE1-2 - Innovation et technologies de l'information et de la communication
+- CC UE1-3 - Audit et innovation en choix technologiques dans les entreprises
+- CC UE3-2- Management opérationnel
+- Cas pratique - Le « K »
+But the mark is empty and task is reopened since 28/11/2022",Backend
+In the parameter the date for Job desc is set up at 31/10. academic director of SACRE COEUR activate contract for all his students but the task to send job desc is not generated,Backend
+"WrgMail_N2B is WRONG: 
+1. The email display in the Email Address table should displaying the email that error
+2. This static text must be ""C'est Marc"" and not ""Ceci est Marc""
+3. WrgMail_N2B must be sent when several emails have problems NOT 1",Backend
+"GO Retake CPEB 2021
+Session for student Alexandre LE MOUELLIC already published but no notification TASK_N1 that sent even the task to upload CV and passport already generated
+
+note: issue laso happens on Maëlle GARNIER (CPC 2021)",Backend
+Remove one of duplicate task for Corentin ISSARTEL to Input company Mentor and Activate Contract relate to student  Amina SARR,Backend
+"when transfer student to title/class that already have tasks, the task is generated double and the task for academic director that are already done are still generated",Backend
+6 student transferred from RM2C to MA2024 from Cesamesup school did not receive notif or tasks for admission,Backend
+The task is not regenrated after I change the course of student from exempt become full title prepared,Backend
+STUD_N8: There are several student that receive notification in double and some of it even receive 3 times,Backend
+"Admisison Form Student Mr Ugo NAVARRO (MA 6 Blocs - 2024)
+The Admsion status for this student already Active but the Task ADMTC Dir to validate Admsiion form still displaye  on Pending Task table",Backend
+On notification History table for Stud_N11 I see the data displayed is different than in User mailbox and thunderbird,Backend
+Stud_N11 is not sent on the production even when there is condition that met to sent the notification,Backend
+Remove the all task academic director to validate test from Pending task table on title CDRH class 2022,Backend
+"The task for academic director to validate test is reopen even the all test already validated. 
+Need to remove all the validata test task from pemding task table",Backend
+"Need to mention: 
+Ref Notif + FormBuilder Name
+Full Name + School Name + Title + Class
+on the bottom part of the notif in 2 lines",Backend
+"Currently the task for academic director to ""Input the company/mentor and activate the contract"" will generated after Student already Set password.
+1/ Now for title that have Admission Document in paramter change the time to generate task ""Input the company/mentor and activate the contract"" after the Student complete the Admission form
+2/ For title that dont have Admsiion form, task  ""Input the company/mentor and activate the contract"" will generated after Student set password (keep the old flow)",Backend
+"Task to add Company/Mentor to Student
+This task is actually activated 14 days BEFORE the date of activation of Job Description in Title parameters
+=> 14 days before a check is done is the student already has a company/mentor if NOT then activate the Task if YES do not activate the task",Backend
+TASK N7: It's reminding for task of 2022 but it's class 2023 and there is no task pending in this class. Title: RM2C - IFC BRDV 2023,Backend
+"student change email scenario: After the academic director change the student email, the notif STUD_N1 and custom notif relates to Registration process still not sent to the student's new email",Backend
+The student display in the notification STUD_N11 isn't match with the student display in the Task menu.,Backend
+Task generated for CDRH but apparently they were already done,Backend
+Need to fix cron job and validation for the cronjob for task generated for student that doesnt  have company,Backend
+Due date on task_N4 is displayed -1,Backend
+Task_N4 is not sent on the production even when there is condition that met to sent the notification,Backend
+"prob_n4: the issues are not sent to the certifier as they should be. All students have filled in their problematics, and they have been validated by the Acad. Dpt. The problematics were not sent this morning as they should have been.",Backend
+"There is 2 tasks upload doc not generated for 2 students on title CDRH - Class 2023 REP 0922
+for test Bloc 2 Plan d'actions GPEC - Ecrit individuel",Backend
+the Notif to enter new password after change email ChgMail_N1 is not sent. it happens to any student also,Backend
+"There is 1 student retake in this block, but there are 2 task generated for the mark entry",Backend
+"When I send Registration email to the user, when check on the user mailbox and thunderbird, I see the registration email is not sent",Backend
+The Cronjob ESurvey_N7 is not triggered on the Prod,Backend
+recieived the notif JOBDESC_N11 on 25/10/2022 even the Date of Activ ation of JOBDESC on parameters is on 31/10/2022.,Backend
+"Clcik on the task to complete Employability Survey from the student card - tab task, it display swal error",Backend
+The task for the student to complete the Employability Survey is not generated,Backend
+User validate 2 tasks but the tasks are still populated in pending tasks,Backend

@@ -141,7 +141,7 @@ def delete_user(id: str, request: Request, response: Response):
         # hapus semua issue yang di-report oleh user ini
         request.app.database["issues"].delete_many({"reporter_id":  user["id"]})
 
-        return JSONResponse(status_code=204, content=jsonable_encoder({"detail": "User deleted successfully"}))
+        return JSONResponse(status_code=200, content=jsonable_encoder({"detail": "User deleted successfully"}))
 
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error))
